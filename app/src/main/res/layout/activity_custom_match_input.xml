@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/b"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/button_bg"
+    tools:context=".CustomMatchInput">
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:text="Back"
+        android:textColor="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/players" />
+
+    <EditText
+        android:id="@+id/players"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="379dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/input_text"
+        android:ems="10"
+        android:hint="11"
+        android:inputType="number"
+        android:paddingLeft="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_name_txt5" />
+
+    <TextView
+        android:id="@+id/enter_name_txt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Player per team?"
+        android:textColor="@color/forest_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/overs" />
+
+    <EditText
+        android:id="@+id/overs"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="379dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/input_text"
+        android:ems="10"
+        android:hint="20"
+        android:inputType="number"
+        android:paddingLeft="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_name_txt4" />
+
+    <TextView
+        android:id="@+id/enter_name_txt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Overs?"
+        android:textColor="@color/forest_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="215dp"
+        android:checkedButton="@id/bat"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_name_txt3">
+
+        <RadioButton
+            android:id="@+id/bat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bat"
+            android:textColorHighlight="@color/grey"
+            android:textColorLink="@color/forest_green" />
+
+        <RadioButton
+            android:id="@+id/bowl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bowl" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/enter_name_txt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Opted to?"
+        android:textColor="@color/forest_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/team2_name"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="379dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/input_text"
+        android:ems="10"
+        android:hint="Team 2"
+        android:inputType="textPersonName"
+        android:paddingLeft="8dp"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team1_name" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-45dp"
+        android:src="@drawable/custom_match_title_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="-30dp"
+        android:text="Enter Name"
+        android:textColor="@color/forest_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/enter_name_txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Toss won by?"
+        android:textColor="@color/forest_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nextbtn" />
+
+    <EditText
+        android:id="@+id/team1_name"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="379dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/input_text"
+        android:ems="10"
+        android:hint="Team 1"
+        android:inputType="textPersonName"
+        android:paddingLeft="8dp"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sname" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="215dp"
+        android:checkedButton="@id/bat"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_name_txt2">
+
+        <RadioButton
+            android:id="@+id/toss_team1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team 1"
+            android:textColorHighlight="@color/grey"
+            android:textColorLink="@color/forest_green" />
+
+        <RadioButton
+            android:id="@+id/toss_team2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team 2" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="-20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/start_match_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/button_bg"
+        android:text="Start Match"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/players" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text=" @karanjotsingh9876"
+        android:textAllCaps="true"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/nextbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_bg"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="@+id/start_match_btn"
+        app:layout_constraintStart_toStartOf="@+id/team2_name"
+        app:layout_constraintTop_toBottomOf="@+id/team2_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
