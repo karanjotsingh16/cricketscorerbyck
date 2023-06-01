@@ -19,6 +19,8 @@ public class CustomMatchInput extends AppCompatActivity {
     static String totOvers;
     static String totPlayers;
 
+    static String bat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +63,18 @@ public class CustomMatchInput extends AppCompatActivity {
                 if (binding.tossTeam1.isChecked()) {
                     if (binding.bat.isChecked()) {
                         resToss = nameTeam1 + " opted to bat first";
+                        bat = nameTeam1;
                     } else if(binding.bowl.isChecked()){
                         resToss = nameTeam1 + " opted to bowl first";
+                        bat = nameTeam2;
                     }
                 } else if (binding.tossTeam2.isChecked()) {
                     if (binding.bat.isChecked()) {
                         resToss = nameTeam2 + " opted to bat first";
+                        bat = nameTeam2;
                     } else if (binding.bowl.isChecked()){
                         resToss = nameTeam2 + " opted to bowl first";
+                        bat  = nameTeam1;
                     }
                 }
 

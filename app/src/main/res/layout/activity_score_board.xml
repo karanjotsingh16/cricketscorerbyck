@@ -37,17 +37,117 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:id="@+id/btn0run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/runsbtnbg"
             android:text="0"
             android:textColor="@color/forest_green"
             android:textSize="34sp"
             app:backgroundTint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="28dp" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn4run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="4"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:backgroundTint="@color/forest_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn0run" />
+
+        <Button
+            android:id="@+id/btn6run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="6"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:backgroundTint="@color/forest_green"
+            app:layout_constraintStart_toEndOf="@+id/btn5run"
+            app:layout_constraintTop_toBottomOf="@+id/btn0run" />
+
+        <Button
+            android:id="@+id/btnwicket"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="w"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:backgroundTint="@android:color/holo_red_dark"
+            app:layout_constraintStart_toEndOf="@+id/btn6run"
+            app:layout_constraintTop_toBottomOf="@+id/btn0run" />
+
+        <Button
+            android:id="@+id/btn1run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="1"
+            android:textColor="@color/forest_green"
+            android:textSize="34sp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btn0run"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn5run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="5"
+            android:textColor="@color/forest_green"
+            android:textSize="34sp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btn0run"
+            app:layout_constraintTop_toBottomOf="@+id/btn1run" />
+
+        <Button
+            android:id="@+id/btn2run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="2"
+            android:textColor="@color/forest_green"
+            android:textSize="34sp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btn1run"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn3run"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/runsbtnbg"
+            android:text="3"
+            android:textColor="@color/forest_green"
+            android:textSize="34sp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/btn2run"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -265,8 +365,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text=")"
+            android:text="."
             app:layout_constraintStart_toEndOf="@+id/totovers"
+            app:layout_constraintTop_toBottomOf="@+id/batteam" />
+
+        <TextView
+            android:id="@+id/balls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="0"
+            app:layout_constraintStart_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/batteam" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text=")"
+            app:layout_constraintStart_toEndOf="@+id/balls"
             app:layout_constraintTop_toBottomOf="@+id/batteam" />
 
         <TextView
@@ -274,7 +392,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="0.0"
+            android:text="0"
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/batteam" />
 
@@ -354,7 +472,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="390dp"
-        android:layout_height="112dp"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -369,6 +487,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -379,6 +498,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -389,6 +509,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -410,6 +531,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="0.00"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -420,6 +542,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -439,7 +562,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Ecn."
+            android:text="Econ."
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/nstrikerstrate" />
@@ -450,6 +573,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="0.00"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
@@ -459,6 +583,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/strikerstrate" />
@@ -488,6 +613,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
@@ -507,6 +633,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
@@ -526,6 +653,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
@@ -535,6 +663,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/strikersixes" />
@@ -554,6 +683,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/strikerfours" />
@@ -573,6 +703,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/strikerballs" />
@@ -592,6 +723,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/strikerruns" />

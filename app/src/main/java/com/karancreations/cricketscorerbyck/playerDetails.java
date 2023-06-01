@@ -2,6 +2,7 @@ package com.karancreations.cricketscorerbyck;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -31,10 +32,8 @@ public class playerDetails extends AppCompatActivity {
                 striker = binding.striker.getText().toString();
                 nonStriker = binding.nstriker.getText().toString();
                 openingBowler = binding.obowler.getText().toString();
-
-                Toast.makeText(playerDetails.this, striker, Toast.LENGTH_SHORT).show();
-                Toast.makeText(playerDetails.this, nonStriker, Toast.LENGTH_SHORT).show();
-                Toast.makeText(playerDetails.this, openingBowler, Toast.LENGTH_SHORT).show();
+                Intent scoreboard = new Intent(getApplicationContext(), scoreBoard.class);
+                startActivity(scoreboard);
             }
         });
 
