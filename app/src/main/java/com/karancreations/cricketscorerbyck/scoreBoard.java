@@ -44,32 +44,34 @@ public class scoreBoard extends AppCompatActivity {
     float strikerStrate = 1;
     String stStrikeRate;
 
-    String batsman[] = new String[11];
+    String batsman[] = new String[11];  //Array to store name of variables
 
+//    Function that starts on the start of the activity
     @Override
     protected void onStart() {
         super.onStart();
-        scStriker = playerDetails.striker;
-        scnonStriker = playerDetails.nonStriker;
-        scBowler = playerDetails.openingBowler;
-        team1 = CustomMatchInput.nameTeam1;
-        team2 = CustomMatchInput.nameTeam2;
-        teambat = CustomMatchInput.bat;
+        scStriker = playerDetails.striker;   //store value of striker name to a variable from another activity
+        scnonStriker = playerDetails.nonStriker;//store value of non-striker name to a variable from another activity
+        scBowler = playerDetails.openingBowler;//store value of bowler name to a variable from another activity
+        team1 = CustomMatchInput.nameTeam1;//store value of team1 name to a variable from another activity
+        team2 = CustomMatchInput.nameTeam2;//store value of team2 name to a variable from another activity
+        teambat = CustomMatchInput.bat;//store value of batting team name to a variable from another activity
 
-        totPlayers = Integer.parseInt(CustomMatchInput.totPlayers);
+        totPlayers = Integer.parseInt(CustomMatchInput.totPlayers);//store value of total players from another activity
 
-        batsman[0] = scStriker;
-        batsman[1] = scnonStriker;
+        batsman[0] = scStriker;//storing name of 1st batsman in array
+        batsman[1] = scnonStriker;//storing name of 2nd batsman in array
 
-        binding.strikersb.setText(batsman[0]);
-        binding.nstrikersb.setText(batsman[1]);
-        binding.bowlersb.setText(scBowler);
-        binding.t1name.setText(team1);
-        binding.t2name.setText(team2);
-        binding.batteam.setText(teambat);
+        binding.strikersb.setText(batsman[0]);//changing text of batsman in frontend
+        binding.nstrikersb.setText(batsman[1]);//changing text of batsman in frontend
+        binding.bowlersb.setText(scBowler);//changing text of bowler in frontend
+        binding.t1name.setText(team1);//changing text of Team1 in frontend
+        binding.t2name.setText(team2);//changing text of Team2 in frontend
+        binding.batteam.setText(teambat);//changing text of Batting team in frontend
 
     }
 
+//    Main Method Starts Here...
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,35 +83,37 @@ public class scoreBoard extends AppCompatActivity {
         batsman[wickets+1] = com.karancreations.cricketscorerbyck.newBatsman.newBatsman;
 
 
-        onStart();
+        onStart();//Implementing on start method
 
+//        Click on 0 Button Code...
        binding.btn0run.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               totRuns += 0;
-               runs = Integer.toString(totRuns);
-               binding.totruns.setText(runs);
+               totRuns += 0;//to update total runs
+               runs = Integer.toString(totRuns);//converting int runs to string runs
+               binding.totruns.setText(runs);//changing runs in frontend
 
-               balls += 1;
+               balls += 1;// updating balls
                if (balls == 6){
                    balls = 0;
                    overs += 1;
                }
-               totBalls = Integer.toString(balls);
-               totOvers = Integer.toString(overs);
+               totBalls = Integer.toString(balls);//int to string
+               totOvers = Integer.toString(overs);//int to string
 
-               binding.balls.setText(totBalls);
-               binding.totovers.setText(totOvers);
+               binding.balls.setText(totBalls);//changing balls in frontend
+               binding.totovers.setText(totOvers);//changing overs in frontend
 
-               strikerRuns += 0;
-               stRuns = Integer.toString(strikerRuns);
-               binding.strikerruns.setText(stRuns);
+               strikerRuns += 0;//updating striker runs
+               stRuns = Integer.toString(strikerRuns);//int to string
+               binding.strikerruns.setText(stRuns);//changing striker runs in frontend
 
-               strikerBalls += 1;
-               stBalls = Integer.toString(strikerBalls);
-               binding.strikerballs.setText(stBalls);
+               strikerBalls += 1;//updating striker balls
+               stBalls = Integer.toString(strikerBalls);//int to string
+               binding.strikerballs.setText(stBalls);//changing striker balls in frontend
 
 
+//               Calculating and updating Strike Rate
                strikerStrate = (strikerRuns/strikerBalls) * 100;
                stStrikeRate = String.valueOf(strikerStrate);
                binding.strikerstrate.setText(stStrikeRate);
@@ -117,6 +121,7 @@ public class scoreBoard extends AppCompatActivity {
            }
        });
 
+//        Click on 1 Button Code...
        binding.btn1run.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -151,7 +156,7 @@ public class scoreBoard extends AppCompatActivity {
        });
 
 
-
+//        Click on 2 Button Code...
         binding.btn2run.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,7 +192,7 @@ public class scoreBoard extends AppCompatActivity {
         });
 
 
-
+//        Click on 3 Button Code...
         binding.btn3run.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -222,7 +227,7 @@ public class scoreBoard extends AppCompatActivity {
         });
 
 
-
+//        Click on 4 Button Code...
         binding.btn4run.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -261,7 +266,7 @@ public class scoreBoard extends AppCompatActivity {
             }
         });
 
-
+//        Click on 5 Button Code...
         binding.btn5run.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -296,7 +301,7 @@ public class scoreBoard extends AppCompatActivity {
             }
         });
 
-
+//        Click on 6 Button Code...
         binding.btn6run.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -335,14 +340,15 @@ public class scoreBoard extends AppCompatActivity {
             }
         });
 
+//        Click on wicket Button Code...
         binding.btnwicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                wickets += 1;
-                wick = Integer.toString(wickets);
-                binding.totwickets.setText(wick);
+                wickets += 1;//updating wickets
+                wick = Integer.toString(wickets);//int to string
+                binding.totwickets.setText(wick);//changing wickets in frontend
 
-                balls += 1;
+                balls += 1;//updating balls
                 if (balls == 6){
                     balls = 0;
                     overs += 1;
@@ -357,11 +363,6 @@ public class scoreBoard extends AppCompatActivity {
                 stBalls = Integer.toString(strikerBalls);
                 binding.strikerballs.setText(stBalls);
 
-                //                Next Activity Code
-                Intent newBatsman = new Intent(getApplicationContext(), newBatsman.class);
-                startActivity(newBatsman);
-
-                batsman[wickets+1] = com.karancreations.cricketscorerbyck.newBatsman.newBatsman;
 
 
 
