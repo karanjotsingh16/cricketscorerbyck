@@ -1,8 +1,10 @@
 package com.karancreations.cricketscorerbyck;
 
 import androidx.appcompat.app.AppCompatActivity;
+import java.lang.Math;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 
@@ -44,6 +46,19 @@ public class scoreBoard extends AppCompatActivity {
     float strikerStrate = 1;
     String stStrikeRate;
 
+    int nstRuns = 0;
+    int nstBalls = 0;
+    float nstStRate = 1;
+
+    int nstFours = 0;
+    int nstSixes = 0;
+
+    String nstrikerFours;
+    String nstrikerSixes;
+
+    String nstrikerRuns;
+    String nstrikerBalls;
+    String nstrikerStRate;
     String batsman[] = new String[11];  //Array to store name of variables
 
 //    Function that starts on the start of the activity
@@ -140,17 +155,43 @@ public class scoreBoard extends AppCompatActivity {
                binding.balls.setText(totBalls);
                binding.totovers.setText(totOvers);
 
-               strikerRuns += 1;
-               stRuns = Integer.toString(strikerRuns);
-               binding.strikerruns.setText(stRuns);
+               if(binding.st1.getVisibility() == View.VISIBLE)
+               {
+                   strikerRuns += 1;
+                   stRuns = Integer.toString(strikerRuns);
+                   binding.strikerruns.setText(stRuns);
 
-               strikerBalls += 1;
-               stBalls = Integer.toString(strikerBalls);
-               binding.strikerballs.setText(stBalls);
+                   strikerBalls += 1;
+                   stBalls = Integer.toString(strikerBalls);
+                   binding.strikerballs.setText(stBalls);
 
-               strikerStrate = (strikerRuns/strikerBalls) * 100;
-               stStrikeRate = String.valueOf(strikerStrate);
-               binding.strikerstrate.setText(stStrikeRate);
+                   strikerStrate = (strikerRuns/strikerBalls) * 100;
+                   stStrikeRate = String.valueOf(strikerStrate);
+                   binding.strikerstrate.setText(stStrikeRate);
+
+                   binding.st1.setVisibility(View.INVISIBLE);
+                   binding.st2.setVisibility(View.VISIBLE);
+
+               } else if (binding.st2.getVisibility() == View.VISIBLE) {
+
+                   nstRuns += 1;
+                   nstrikerRuns = Integer.toString(nstRuns);
+                   binding.nstrikerruns.setText(nstrikerRuns);
+
+                   nstBalls +=1;
+                   nstrikerBalls = Integer.toString(nstBalls);
+                   binding.nstrikerballs.setText(nstrikerBalls);
+
+                   nstStRate =  (strikerRuns/strikerBalls) * 100;
+                   nstrikerStRate = String.valueOf(nstStRate);
+                   binding.nstrikerstrate.setText(nstrikerStRate);
+
+                   binding.st2.setVisibility(View.INVISIBLE);
+                   binding.st1.setVisibility(View.VISIBLE);
+               }
+
+
+
 
            }
        });
@@ -175,18 +216,36 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
-                strikerRuns += 2;
-                stRuns = Integer.toString(strikerRuns);
-                binding.strikerruns.setText(stRuns);
+                if(binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    strikerRuns += 2;
+                    stRuns = Integer.toString(strikerRuns);
+                    binding.strikerruns.setText(stRuns);
 
-                strikerBalls += 1;
-                stBalls = Integer.toString(strikerBalls);
-                binding.strikerballs.setText(stBalls);
+                    strikerBalls += 1;
+                    stBalls = Integer.toString(strikerBalls);
+                    binding.strikerballs.setText(stBalls);
 
+                    strikerStrate = (strikerRuns/strikerBalls) * 100;
+                    stStrikeRate = String.valueOf(strikerStrate);
+                    binding.strikerstrate.setText(stStrikeRate);
 
-                strikerStrate = (strikerRuns/strikerBalls) * 100;
-                stStrikeRate = String.valueOf(strikerStrate);
-                binding.strikerstrate.setText(stStrikeRate);
+                } else if (binding.st2.getVisibility() == View.VISIBLE) {
+
+                    nstRuns += 2;
+                    nstrikerRuns = Integer.toString(nstRuns);
+                    binding.nstrikerruns.setText(nstrikerRuns);
+
+                    nstBalls +=1;
+                    nstrikerBalls = Integer.toString(nstBalls);
+                    binding.nstrikerballs.setText(nstrikerBalls);
+
+                    nstStRate =  (strikerRuns/strikerBalls) * 100;
+                    nstrikerStRate = String.valueOf(nstStRate);
+                    binding.nstrikerstrate.setText(nstrikerStRate);
+
+                }
+
 
             }
         });
@@ -211,17 +270,42 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
-                strikerRuns += 3;
-                stRuns = Integer.toString(strikerRuns);
-                binding.strikerruns.setText(stRuns);
 
-                strikerBalls += 1;
-                stBalls = Integer.toString(strikerBalls);
-                binding.strikerballs.setText(stBalls);
+                if(binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    strikerRuns += 3;
+                    stRuns = Integer.toString(strikerRuns);
+                    binding.strikerruns.setText(stRuns);
 
-                strikerStrate = (strikerRuns/strikerBalls) * 100;
-                stStrikeRate = String.valueOf(strikerStrate);
-                binding.strikerstrate.setText(stStrikeRate);
+                    strikerBalls += 1;
+                    stBalls = Integer.toString(strikerBalls);
+                    binding.strikerballs.setText(stBalls);
+
+                    strikerStrate = (strikerRuns/strikerBalls) * 100;
+                    stStrikeRate = String.valueOf(strikerStrate);
+                    binding.strikerstrate.setText(stStrikeRate);
+
+                    binding.st1.setVisibility(View.INVISIBLE);
+                    binding.st2.setVisibility(View.VISIBLE);
+
+                } else if (binding.st2.getVisibility() == View.VISIBLE) {
+
+                    nstRuns += 3;
+                    nstrikerRuns = Integer.toString(nstRuns);
+                    binding.nstrikerruns.setText(nstrikerRuns);
+
+                    nstBalls +=1;
+                    nstrikerBalls = Integer.toString(nstBalls);
+                    binding.nstrikerballs.setText(nstrikerBalls);
+
+                    nstStRate =  (strikerRuns/strikerBalls) * 100;
+                    nstrikerStRate = String.valueOf(nstStRate);
+                    binding.nstrikerstrate.setText(nstrikerStRate);
+
+                    binding.st2.setVisibility(View.INVISIBLE);
+                    binding.st1.setVisibility(View.VISIBLE);
+                }
+
 
             }
         });
@@ -246,21 +330,47 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
-                strikerRuns += 4;
-                stRuns = Integer.toString(strikerRuns);
-                binding.strikerruns.setText(stRuns);
+                if(binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    strikerRuns += 4;
+                    stRuns = Integer.toString(strikerRuns);
+                    binding.strikerruns.setText(stRuns);
 
-                strikerBalls += 1;
-                stBalls = Integer.toString(strikerBalls);
-                binding.strikerballs.setText(stBalls);
+                    strikerBalls += 1;
+                    stBalls = Integer.toString(strikerBalls);
+                    binding.strikerballs.setText(stBalls);
 
-                strikerFours += 1;
-                stFours = Integer.toString(strikerFours);
-                binding.strikerfours.setText(stFours);
+                    strikerStrate = (strikerRuns/strikerBalls) * 100;
+                    stStrikeRate = String.valueOf(strikerStrate);
+                    binding.strikerstrate.setText(stStrikeRate);
 
-                strikerStrate = (strikerRuns/strikerBalls) * 100;
-                stStrikeRate = String.valueOf(strikerStrate);
-                binding.strikerstrate.setText(stStrikeRate);
+                    strikerFours += 1;
+                    stFours = Integer.toString(strikerFours);
+                    binding.strikerfours.setText(stFours);
+
+
+                } else if (binding.st2.getVisibility() == View.VISIBLE) {
+
+                    nstRuns += 4;
+                    nstrikerRuns = Integer.toString(nstRuns);
+                    binding.nstrikerruns.setText(nstrikerRuns);
+
+                    nstBalls +=1;
+                    nstrikerBalls = Integer.toString(nstBalls);
+                    binding.nstrikerballs.setText(nstrikerBalls);
+
+                    nstStRate =  (strikerRuns/strikerBalls) * 100;
+                    nstrikerStRate = String.valueOf(nstStRate);
+                    binding.nstrikerstrate.setText(nstrikerStRate);
+
+                    nstFours += 1;
+                    nstrikerFours = Integer.toString(nstFours);
+                    binding.nstrikerfours.setText(nstrikerFours);
+
+
+                }
+
+
 
 
             }
@@ -285,17 +395,42 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
-                strikerRuns += 5;
-                stRuns = Integer.toString(strikerRuns);
-                binding.strikerruns.setText(stRuns);
 
-                strikerBalls += 1;
-                stBalls = Integer.toString(strikerBalls);
-                binding.strikerballs.setText(stBalls);
+                if(binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    strikerRuns += 5;
+                    stRuns = Integer.toString(strikerRuns);
+                    binding.strikerruns.setText(stRuns);
 
-                strikerStrate = (strikerRuns/strikerBalls) * 100;
-                stStrikeRate = String.valueOf(strikerStrate);
-                binding.strikerstrate.setText(stStrikeRate);
+                    strikerBalls += 1;
+                    stBalls = Integer.toString(strikerBalls);
+                    binding.strikerballs.setText(stBalls);
+
+                    strikerStrate = (strikerRuns/strikerBalls) * 100;
+                    stStrikeRate = String.valueOf(strikerStrate);
+                    binding.strikerstrate.setText(stStrikeRate);
+
+                    binding.st1.setVisibility(View.INVISIBLE);
+                    binding.st2.setVisibility(View.VISIBLE);
+
+                } else if (binding.st2.getVisibility() == View.VISIBLE) {
+
+                    nstRuns += 5;
+                    nstrikerRuns = Integer.toString(nstRuns);
+                    binding.nstrikerruns.setText(nstrikerRuns);
+
+                    nstBalls +=1;
+                    nstrikerBalls = Integer.toString(nstBalls);
+                    binding.nstrikerballs.setText(nstrikerBalls);
+
+                    nstStRate =  (strikerRuns/strikerBalls) * 100;
+                    nstrikerStRate = String.valueOf(nstStRate);
+                    binding.nstrikerstrate.setText(nstrikerStRate);
+
+                    binding.st2.setVisibility(View.INVISIBLE);
+                    binding.st1.setVisibility(View.VISIBLE);
+                }
+
 
 
             }
@@ -320,21 +455,46 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
-                strikerRuns += 6;
-                stRuns = Integer.toString(strikerRuns);
-                binding.strikerruns.setText(stRuns);
+                if(binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    strikerRuns += 6;
+                    stRuns = Integer.toString(strikerRuns);
+                    binding.strikerruns.setText(stRuns);
 
-                strikerBalls += 1;
-                stBalls = Integer.toString(strikerBalls);
-                binding.strikerballs.setText(stBalls);
+                    strikerBalls += 1;
+                    stBalls = Integer.toString(strikerBalls);
+                    binding.strikerballs.setText(stBalls);
 
-                strikerSixes += 1;
-                stSixes = Integer.toString(strikerSixes);
-                binding.strikersixes.setText(stSixes);
+                    strikerStrate = (strikerRuns/strikerBalls) * 100;
+                    stStrikeRate = String.valueOf(strikerStrate);
+                    binding.strikerstrate.setText(stStrikeRate);
 
-                strikerStrate = (strikerRuns/strikerBalls) * 100;
-                stStrikeRate = String.valueOf(strikerStrate);
-                binding.strikerstrate.setText(stStrikeRate);
+                    strikerSixes += 1;
+                    stSixes = Integer.toString(strikerSixes);
+                    binding.strikersixes.setText(stSixes);
+
+
+                } else if (binding.st2.getVisibility() == View.VISIBLE) {
+
+                    nstRuns += 6;
+                    nstrikerRuns = Integer.toString(nstRuns);
+                    binding.nstrikerruns.setText(nstrikerRuns);
+
+                    nstBalls +=1;
+                    nstrikerBalls = Integer.toString(nstBalls);
+                    binding.nstrikerballs.setText(nstrikerBalls);
+
+                    nstStRate =  (strikerRuns/strikerBalls) * 100;
+                    nstrikerStRate = String.valueOf(nstStRate);
+                    binding.nstrikerstrate.setText(nstrikerStRate);
+
+                    nstSixes += 1;
+                    nstrikerSixes = Integer.toString(nstSixes);
+                    binding.nstrikersixes.setText(nstrikerSixes);
+
+
+                }
+
 
 
             }

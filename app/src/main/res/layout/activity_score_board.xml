@@ -802,6 +802,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
+        <TextView
+            android:id="@+id/st1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@color/forest_green"
+            app:layout_constraintStart_toEndOf="@+id/strikersb"
+            app:layout_constraintTop_toTopOf="@+id/strikersb" />
+
+        <TextView
+            android:id="@+id/st2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textColor="@color/forest_green"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/nstrikersb"
+            app:layout_constraintTop_toBottomOf="@+id/strikersb" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
