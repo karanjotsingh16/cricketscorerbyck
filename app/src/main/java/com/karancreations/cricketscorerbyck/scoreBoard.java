@@ -2,6 +2,7 @@ package com.karancreations.cricketscorerbyck;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -43,6 +44,8 @@ public class scoreBoard extends AppCompatActivity {
     float strikerStrate = 1;
     String stStrikeRate;
 
+    String batsman[] = new String[11];
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -55,8 +58,11 @@ public class scoreBoard extends AppCompatActivity {
 
         totPlayers = Integer.parseInt(CustomMatchInput.totPlayers);
 
-        binding.strikersb.setText(scStriker);
-        binding.nstrikersb.setText(scnonStriker);
+        batsman[0] = scStriker;
+        batsman[1] = scnonStriker;
+
+        binding.strikersb.setText(batsman[0]);
+        binding.nstrikersb.setText(batsman[1]);
         binding.bowlersb.setText(scBowler);
         binding.t1name.setText(team1);
         binding.t2name.setText(team2);
@@ -72,7 +78,10 @@ public class scoreBoard extends AppCompatActivity {
 
         getSupportActionBar().hide();  // To hide Title Bar
 
-       onStart();
+        batsman[wickets+1] = com.karancreations.cricketscorerbyck.newBatsman.newBatsman;
+
+
+        onStart();
 
        binding.btn0run.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -99,6 +108,7 @@ public class scoreBoard extends AppCompatActivity {
                strikerBalls += 1;
                stBalls = Integer.toString(strikerBalls);
                binding.strikerballs.setText(stBalls);
+
 
                strikerStrate = (strikerRuns/strikerBalls) * 100;
                stStrikeRate = String.valueOf(strikerStrate);
@@ -133,6 +143,10 @@ public class scoreBoard extends AppCompatActivity {
                stBalls = Integer.toString(strikerBalls);
                binding.strikerballs.setText(stBalls);
 
+               strikerStrate = (strikerRuns/strikerBalls) * 100;
+               stStrikeRate = String.valueOf(strikerStrate);
+               binding.strikerstrate.setText(stStrikeRate);
+
            }
        });
 
@@ -165,6 +179,10 @@ public class scoreBoard extends AppCompatActivity {
                 binding.strikerballs.setText(stBalls);
 
 
+                strikerStrate = (strikerRuns/strikerBalls) * 100;
+                stStrikeRate = String.valueOf(strikerStrate);
+                binding.strikerstrate.setText(stStrikeRate);
+
             }
         });
 
@@ -195,6 +213,10 @@ public class scoreBoard extends AppCompatActivity {
                 strikerBalls += 1;
                 stBalls = Integer.toString(strikerBalls);
                 binding.strikerballs.setText(stBalls);
+
+                strikerStrate = (strikerRuns/strikerBalls) * 100;
+                stStrikeRate = String.valueOf(strikerStrate);
+                binding.strikerstrate.setText(stStrikeRate);
 
             }
         });
@@ -231,6 +253,10 @@ public class scoreBoard extends AppCompatActivity {
                 stFours = Integer.toString(strikerFours);
                 binding.strikerfours.setText(stFours);
 
+                strikerStrate = (strikerRuns/strikerBalls) * 100;
+                stStrikeRate = String.valueOf(strikerStrate);
+                binding.strikerstrate.setText(stStrikeRate);
+
 
             }
         });
@@ -261,6 +287,10 @@ public class scoreBoard extends AppCompatActivity {
                 strikerBalls += 1;
                 stBalls = Integer.toString(strikerBalls);
                 binding.strikerballs.setText(stBalls);
+
+                strikerStrate = (strikerRuns/strikerBalls) * 100;
+                stStrikeRate = String.valueOf(strikerStrate);
+                binding.strikerstrate.setText(stStrikeRate);
 
 
             }
@@ -297,6 +327,10 @@ public class scoreBoard extends AppCompatActivity {
                 stSixes = Integer.toString(strikerSixes);
                 binding.strikersixes.setText(stSixes);
 
+                strikerStrate = (strikerRuns/strikerBalls) * 100;
+                stStrikeRate = String.valueOf(strikerStrate);
+                binding.strikerstrate.setText(stStrikeRate);
+
 
             }
         });
@@ -322,6 +356,14 @@ public class scoreBoard extends AppCompatActivity {
                 strikerBalls += 1;
                 stBalls = Integer.toString(strikerBalls);
                 binding.strikerballs.setText(stBalls);
+
+                //                Next Activity Code
+                Intent newBatsman = new Intent(getApplicationContext(), newBatsman.class);
+                startActivity(newBatsman);
+
+                batsman[wickets+1] = com.karancreations.cricketscorerbyck.newBatsman.newBatsman;
+
+
 
 
             }

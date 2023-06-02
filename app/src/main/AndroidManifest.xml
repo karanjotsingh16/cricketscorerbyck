@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CricketScorerByCK"
         tools:targetApi="31">
         <activity
+            android:name=".newBatsman"
+            android:exported="false" />
+        <activity
             android:name=".scoreBoard"
             android:exported="false" />
         <activity
