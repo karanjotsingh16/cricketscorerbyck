@@ -28,6 +28,21 @@ public class scoreBoard extends AppCompatActivity {
     String wick;
     int totPlayers;
 
+    int strikerRuns = 0;
+    String stRuns;
+
+    int strikerBalls = 0;
+    String stBalls;
+
+    int strikerFours = 0;
+    String stFours;
+
+    int strikerSixes = 0;
+    String stSixes;
+
+    float strikerStrate = 1;
+    String stStrikeRate;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -77,6 +92,18 @@ public class scoreBoard extends AppCompatActivity {
                binding.balls.setText(totBalls);
                binding.totovers.setText(totOvers);
 
+               strikerRuns += 0;
+               stRuns = Integer.toString(strikerRuns);
+               binding.strikerruns.setText(stRuns);
+
+               strikerBalls += 1;
+               stBalls = Integer.toString(strikerBalls);
+               binding.strikerballs.setText(stBalls);
+
+               strikerStrate = (strikerRuns/strikerBalls) * 100;
+               stStrikeRate = String.valueOf(strikerStrate);
+               binding.strikerstrate.setText(stStrikeRate);
+
            }
        });
 
@@ -97,6 +124,14 @@ public class scoreBoard extends AppCompatActivity {
 
                binding.balls.setText(totBalls);
                binding.totovers.setText(totOvers);
+
+               strikerRuns += 1;
+               stRuns = Integer.toString(strikerRuns);
+               binding.strikerruns.setText(stRuns);
+
+               strikerBalls += 1;
+               stBalls = Integer.toString(strikerBalls);
+               binding.strikerballs.setText(stBalls);
 
            }
        });
@@ -120,6 +155,14 @@ public class scoreBoard extends AppCompatActivity {
 
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
+
+                strikerRuns += 2;
+                stRuns = Integer.toString(strikerRuns);
+                binding.strikerruns.setText(stRuns);
+
+                strikerBalls += 1;
+                stBalls = Integer.toString(strikerBalls);
+                binding.strikerballs.setText(stBalls);
 
 
             }
@@ -145,6 +188,13 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
+                strikerRuns += 3;
+                stRuns = Integer.toString(strikerRuns);
+                binding.strikerruns.setText(stRuns);
+
+                strikerBalls += 1;
+                stBalls = Integer.toString(strikerBalls);
+                binding.strikerballs.setText(stBalls);
 
             }
         });
@@ -169,6 +219,18 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
+                strikerRuns += 4;
+                stRuns = Integer.toString(strikerRuns);
+                binding.strikerruns.setText(stRuns);
+
+                strikerBalls += 1;
+                stBalls = Integer.toString(strikerBalls);
+                binding.strikerballs.setText(stBalls);
+
+                strikerFours += 1;
+                stFours = Integer.toString(strikerFours);
+                binding.strikerfours.setText(stFours);
+
 
             }
         });
@@ -191,6 +253,14 @@ public class scoreBoard extends AppCompatActivity {
 
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
+
+                strikerRuns += 5;
+                stRuns = Integer.toString(strikerRuns);
+                binding.strikerruns.setText(stRuns);
+
+                strikerBalls += 1;
+                stBalls = Integer.toString(strikerBalls);
+                binding.strikerballs.setText(stBalls);
 
 
             }
@@ -215,6 +285,18 @@ public class scoreBoard extends AppCompatActivity {
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
 
+                strikerRuns += 6;
+                stRuns = Integer.toString(strikerRuns);
+                binding.strikerruns.setText(stRuns);
+
+                strikerBalls += 1;
+                stBalls = Integer.toString(strikerBalls);
+                binding.strikerballs.setText(stBalls);
+
+                strikerSixes += 1;
+                stSixes = Integer.toString(strikerSixes);
+                binding.strikersixes.setText(stSixes);
+
 
             }
         });
@@ -236,6 +318,10 @@ public class scoreBoard extends AppCompatActivity {
 
                 binding.balls.setText(totBalls);
                 binding.totovers.setText(totOvers);
+
+                strikerBalls += 1;
+                stBalls = Integer.toString(strikerBalls);
+                binding.strikerballs.setText(stBalls);
 
 
             }
