@@ -61,6 +61,14 @@ public class scoreBoard extends AppCompatActivity {
     String nstrikerStRate;
     String batsman[] = new String[11];  //Array to store name of variables
 
+    int bowlerBalls = 0;
+    int bowlerRuns = 0;
+    int bowlerWickets = 0;
+
+    String bRuns;
+    String bBalls;
+    String bWickets;
+
 //    Function that starts on the start of the activity
     @Override
     protected void onStart() {
@@ -133,6 +141,15 @@ public class scoreBoard extends AppCompatActivity {
                stStrikeRate = String.valueOf(strikerStrate);
                binding.strikerstrate.setText(stStrikeRate);
 
+//               Bowler
+               bowlerBalls += 1;
+               bBalls = Integer.toString(bowlerBalls);
+               binding.bowlerovers.setText(bBalls);
+
+               bowlerRuns += 0;
+               bRuns = Integer.toString(bowlerBalls);
+               binding.bowlerruns.setText(bRuns);
+
            }
        });
 
@@ -190,6 +207,15 @@ public class scoreBoard extends AppCompatActivity {
                    binding.st1.setVisibility(View.VISIBLE);
                }
 
+               //               Bowler
+               bowlerBalls += 1;
+               bBalls = Integer.toString(bowlerBalls);
+               binding.bowlerovers.setText(bBalls);
+
+               bowlerRuns += 1;
+               bRuns = Integer.toString(bowlerBalls);
+               binding.bowlerruns.setText(bRuns);
+
 
 
 
@@ -245,6 +271,15 @@ public class scoreBoard extends AppCompatActivity {
                     binding.nstrikerstrate.setText(nstrikerStRate);
 
                 }
+
+                //               Bowler
+                bowlerBalls += 1;
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerovers.setText(bBalls);
+
+                bowlerRuns += 2;
+                bRuns = Integer.toString(bowlerBalls);
+                binding.bowlerruns.setText(bRuns);
 
 
             }
@@ -305,6 +340,15 @@ public class scoreBoard extends AppCompatActivity {
                     binding.st2.setVisibility(View.INVISIBLE);
                     binding.st1.setVisibility(View.VISIBLE);
                 }
+
+                //               Bowler
+                bowlerBalls += 1;
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerovers.setText(bBalls);
+
+                bowlerRuns += 3;
+                bRuns = Integer.toString(bowlerBalls);
+                binding.bowlerruns.setText(bRuns);
 
 
             }
@@ -370,6 +414,14 @@ public class scoreBoard extends AppCompatActivity {
 
                 }
 
+                //               Bowler
+                bowlerBalls += 1;
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerovers.setText(bBalls);
+
+                bowlerRuns += 4;
+                bRuns = Integer.toString(bowlerBalls);
+                binding.bowlerruns.setText(bRuns);
 
 
 
@@ -431,6 +483,14 @@ public class scoreBoard extends AppCompatActivity {
                     binding.st1.setVisibility(View.VISIBLE);
                 }
 
+                //               Bowler
+                bowlerBalls += 1;
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerovers.setText(bBalls);
+
+                bowlerRuns += 5;
+                bRuns = Integer.toString(bowlerBalls);
+                binding.bowlerruns.setText(bRuns);
 
 
             }
@@ -495,6 +555,15 @@ public class scoreBoard extends AppCompatActivity {
 
                 }
 
+                //               Bowler
+                bowlerBalls += 1;
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerovers.setText(bBalls);
+
+                bowlerRuns += 6;
+                bRuns = Integer.toString(bowlerBalls);
+                binding.bowlerruns.setText(bRuns);
+
 
 
             }
@@ -523,7 +592,18 @@ public class scoreBoard extends AppCompatActivity {
                 stBalls = Integer.toString(strikerBalls);
                 binding.strikerballs.setText(stBalls);
 
+//               Bowler
+                bowlerBalls += 1;
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerovers.setText(bBalls);
 
+                bowlerRuns += 0;
+                bRuns = Integer.toString(bowlerBalls);
+                binding.bowlerruns.setText(bRuns);
+
+                bowlerWickets += 1;
+                bWickets = Integer.toString(bowlerWickets);
+                binding.bowlerwickets.setText(bWickets);
 
 
 
