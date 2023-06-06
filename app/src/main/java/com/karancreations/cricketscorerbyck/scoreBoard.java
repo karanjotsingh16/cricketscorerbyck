@@ -64,10 +64,15 @@ public class scoreBoard extends AppCompatActivity {
     int bowlerBalls = 0;
     int bowlerRuns = 0;
     int bowlerWickets = 0;
+    int bowlerOvers = 0;
 
     String bRuns;
     String bBalls;
     String bWickets;
+    String bOvers;
+
+    int bowlereconomy;
+    String beconomy;
 
 //    Function that starts on the start of the activity
     @Override
@@ -142,13 +147,29 @@ public class scoreBoard extends AppCompatActivity {
                binding.strikerstrate.setText(stStrikeRate);
 
 //               Bowler
-               bowlerBalls += 1;
-               bBalls = Integer.toString(bowlerBalls);
-               binding.bowlerovers.setText(bBalls);
 
                bowlerRuns += 0;
-               bRuns = Integer.toString(bowlerBalls);
+               bRuns = Integer.toString(bowlerRuns);
                binding.bowlerruns.setText(bRuns);
+
+               bowlerBalls += 1;// updating bowler balls
+               if (bowlerBalls == 6){
+                   bowlerBalls = 0;
+                   bowlerOvers += 1;
+               }
+
+               bBalls = Integer.toString(bowlerBalls);
+               binding.bowlerballs.setText(bBalls);
+
+               bOvers = Integer.toString(bowlerOvers);
+               binding.bowlerovers.setText(bOvers);
+
+//               bowlereconomy = bowlerRuns/bowlerOvers;
+//               beconomy = String.valueOf(bowlereconomy);
+//
+//               if (bowlerBalls == 0)
+//                   binding.bowlerecon.setText(beconomy);
+
 
            }
        });
@@ -208,14 +229,28 @@ public class scoreBoard extends AppCompatActivity {
                }
 
                //               Bowler
-               bowlerBalls += 1;
-               bBalls = Integer.toString(bowlerBalls);
-               binding.bowlerovers.setText(bBalls);
 
                bowlerRuns += 1;
-               bRuns = Integer.toString(bowlerBalls);
+               bRuns = Integer.toString(bowlerRuns);
                binding.bowlerruns.setText(bRuns);
 
+               bowlerBalls += 1;// updating bowler balls
+               if (bowlerBalls == 6){
+                   bowlerBalls = 0;
+                   bowlerOvers += 1;
+               }
+
+               bBalls = Integer.toString(bowlerBalls);
+               binding.bowlerballs.setText(bBalls);
+
+               bOvers = Integer.toString(bowlerOvers);
+               binding.bowlerovers.setText(bOvers);
+
+//               bowlereconomy = bowlerRuns/bowlerOvers;
+//               beconomy = String.valueOf(bowlereconomy);
+//
+//               if (bowlerBalls == 0)
+//                   binding.bowlerecon.setText(beconomy);
 
 
 
@@ -273,13 +308,28 @@ public class scoreBoard extends AppCompatActivity {
                 }
 
                 //               Bowler
-                bowlerBalls += 1;
-                bBalls = Integer.toString(bowlerBalls);
-                binding.bowlerovers.setText(bBalls);
 
                 bowlerRuns += 2;
-                bRuns = Integer.toString(bowlerBalls);
+                bRuns = Integer.toString(bowlerRuns);
                 binding.bowlerruns.setText(bRuns);
+
+                bowlerBalls += 1;// updating bowler balls
+                if (bowlerBalls == 6){
+                    bowlerBalls = 0;
+                    bowlerOvers += 1;
+                }
+
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerballs.setText(bBalls);
+
+                bOvers = Integer.toString(bowlerOvers);
+                binding.bowlerovers.setText(bOvers);
+
+//                bowlereconomy = bowlerRuns/bowlerOvers;
+//                beconomy = String.valueOf(bowlereconomy);
+//
+//                if (bowlerBalls == 0)
+//                    binding.bowlerecon.setText(beconomy);
 
 
             }
@@ -342,14 +392,28 @@ public class scoreBoard extends AppCompatActivity {
                 }
 
                 //               Bowler
-                bowlerBalls += 1;
-                bBalls = Integer.toString(bowlerBalls);
-                binding.bowlerovers.setText(bBalls);
 
                 bowlerRuns += 3;
-                bRuns = Integer.toString(bowlerBalls);
+                bRuns = Integer.toString(bowlerRuns);
                 binding.bowlerruns.setText(bRuns);
 
+                bowlerBalls += 1;// updating bowler balls
+                if (bowlerBalls == 6){
+                    bowlerBalls = 0;
+                    bowlerOvers += 1;
+                }
+
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerballs.setText(bBalls);
+
+                bOvers = Integer.toString(bowlerOvers);
+                binding.bowlerovers.setText(bOvers);
+
+//                bowlereconomy = bowlerRuns/bowlerOvers;
+//                beconomy = String.valueOf(bowlereconomy);
+//
+//                if (bowlerBalls == 0)
+//                    binding.bowlerecon.setText(beconomy);
 
             }
         });
@@ -415,13 +479,28 @@ public class scoreBoard extends AppCompatActivity {
                 }
 
                 //               Bowler
-                bowlerBalls += 1;
-                bBalls = Integer.toString(bowlerBalls);
-                binding.bowlerovers.setText(bBalls);
 
                 bowlerRuns += 4;
-                bRuns = Integer.toString(bowlerBalls);
+                bRuns = Integer.toString(bowlerRuns);
                 binding.bowlerruns.setText(bRuns);
+
+                bowlerBalls += 1;// updating bowler balls
+                if (bowlerBalls == 6){
+                    bowlerBalls = 0;
+                    bowlerOvers += 1;
+                }
+
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerballs.setText(bBalls);
+
+                bOvers = Integer.toString(bowlerOvers);
+                binding.bowlerovers.setText(bOvers);
+
+//                bowlereconomy = bowlerRuns/bowlerOvers;
+//                beconomy = String.valueOf(bowlereconomy);
+//
+//                if (bowlerBalls == 0)
+//                    binding.bowlerecon.setText(beconomy);
 
 
 
@@ -484,13 +563,28 @@ public class scoreBoard extends AppCompatActivity {
                 }
 
                 //               Bowler
-                bowlerBalls += 1;
-                bBalls = Integer.toString(bowlerBalls);
-                binding.bowlerovers.setText(bBalls);
 
                 bowlerRuns += 5;
-                bRuns = Integer.toString(bowlerBalls);
+                bRuns = Integer.toString(bowlerRuns);
                 binding.bowlerruns.setText(bRuns);
+
+                bowlerBalls += 1;// updating bowler balls
+                if (bowlerBalls == 6){
+                    bowlerBalls = 0;
+                    bowlerOvers += 1;
+                }
+
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerballs.setText(bBalls);
+
+                bOvers = Integer.toString(bowlerOvers);
+                binding.bowlerovers.setText(bOvers);
+
+//                bowlereconomy = bowlerRuns/bowlerOvers;
+//                beconomy = String.valueOf(bowlereconomy);
+//
+//                if (bowlerBalls == 0)
+//                    binding.bowlerecon.setText(beconomy);
 
 
             }
@@ -556,13 +650,28 @@ public class scoreBoard extends AppCompatActivity {
                 }
 
                 //               Bowler
-                bowlerBalls += 1;
-                bBalls = Integer.toString(bowlerBalls);
-                binding.bowlerovers.setText(bBalls);
 
                 bowlerRuns += 6;
-                bRuns = Integer.toString(bowlerBalls);
+                bRuns = Integer.toString(bowlerRuns);
                 binding.bowlerruns.setText(bRuns);
+
+                bowlerBalls += 1;// updating bowler balls
+                if (bowlerBalls == 6){
+                    bowlerBalls = 0;
+                    bowlerOvers += 1;
+                }
+
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerballs.setText(bBalls);
+
+                bOvers = Integer.toString(bowlerOvers);
+                binding.bowlerovers.setText(bOvers);
+
+//                bowlereconomy = bowlerRuns/bowlerOvers;
+//                beconomy = String.valueOf(bowlereconomy);
+//
+//                if (bowlerBalls == 0)
+//                    binding.bowlerecon.setText(beconomy);
 
 
 
@@ -593,17 +702,32 @@ public class scoreBoard extends AppCompatActivity {
                 binding.strikerballs.setText(stBalls);
 
 //               Bowler
-                bowlerBalls += 1;
-                bBalls = Integer.toString(bowlerBalls);
-                binding.bowlerovers.setText(bBalls);
 
                 bowlerRuns += 0;
-                bRuns = Integer.toString(bowlerBalls);
+                bRuns = Integer.toString(bowlerRuns);
                 binding.bowlerruns.setText(bRuns);
+
+                bowlerBalls += 1;// updating bowler balls
+                if (bowlerBalls == 6){
+                    bowlerBalls = 0;
+                    bowlerOvers += 1;
+                }
+
+                bBalls = Integer.toString(bowlerBalls);
+                binding.bowlerballs.setText(bBalls);
+
+                bOvers = Integer.toString(bowlerOvers);
+                binding.bowlerovers.setText(bOvers);
 
                 bowlerWickets += 1;
                 bWickets = Integer.toString(bowlerWickets);
                 binding.bowlerwickets.setText(bWickets);
+
+//                bowlereconomy = bowlerRuns/bowlerOvers;
+//                beconomy = String.valueOf(bowlereconomy);
+//
+//                if (bowlerBalls == 0)
+//                    binding.bowlerecon.setText(beconomy);
 
 
 
