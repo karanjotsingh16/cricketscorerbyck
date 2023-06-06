@@ -1,11 +1,13 @@
 package com.karancreations.cricketscorerbyck;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import java.lang.Math;
 
 import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 
 import com.karancreations.cricketscorerbyck.databinding.ActivityScoreBoardBinding;
@@ -99,7 +101,40 @@ public class scoreBoard extends AppCompatActivity {
 
     }
 
-//    Main Method Starts Here...
+//    @Override
+//    public void onSaveInstanceState(Bundle savedInstanceState) {
+//        super.onSaveInstanceState(savedInstanceState);
+//        savedInstanceState.putInt(runs,totRuns);
+//        savedInstanceState.putInt(wick,wickets);
+//        savedInstanceState.putInt(totBalls,balls);
+//        savedInstanceState.putInt(totOvers,overs);
+//        savedInstanceState.putInt(stRuns,strikerRuns);
+//        savedInstanceState.putInt(stBalls,strikerBalls);
+//        savedInstanceState.putInt(stFours,strikerFours);
+//        savedInstanceState.putInt(stSixes,strikerSixes);
+//        savedInstanceState.putFloat(stStrikeRate,strikerStrate);
+//        savedInstanceState.putInt(nstrikerRuns,nstRuns);
+//        savedInstanceState.putInt(nstrikerBalls,nstBalls);
+//        savedInstanceState.putInt(nstrikerFours,nstFours);
+//        savedInstanceState.putInt(nstrikerSixes,nstSixes);
+//        savedInstanceState.putFloat(nstrikerStRate,nstStRate);
+//        savedInstanceState.putString(scStriker,batsman[0]);
+//        savedInstanceState.putString(scnonStriker,batsman[1]);
+//
+//
+//    }
+//
+//
+//    @Override
+//    public void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//       runs = savedInstanceState.getString(runs);
+//    }
+//
+
+
+    //    Main Method Starts Here...
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -731,8 +766,16 @@ public class scoreBoard extends AppCompatActivity {
 
 
 
+
+
             }
         });
+
+//        onSaveInstanceState(new Bundle());
+//        onRestoreInstanceState(new Bundle());
+
+
+
 
 
 
