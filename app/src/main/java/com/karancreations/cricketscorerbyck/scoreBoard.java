@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.karancreations.cricketscorerbyck.databinding.ActivityScoreBoardBinding;
 import com.karancreations.cricketscorerbyck.playerDetails;
@@ -60,11 +59,7 @@ public class scoreBoard extends AppCompatActivity {
     String nstrikerRuns;
     String nstrikerBalls;
     String nstrikerStRate;
-    String batsman[] = new String[11];  //Array to store name
-    int batsmanRuns[] = new int[11];//Array to store batsman runs
-    int batsmanBalls[] = new int[11];//Array to store batsman balls
-    int batsmanFours[] = new int[11];//Array to store batsman Fours
-    int batsmanSixes[] = new int[11];//Array to store batsman Sixes
+    String batsman[] = new String[11];  //Array to store name of variables
 
     int bowlerBalls = 0;
     int bowlerRuns = 0;
@@ -734,34 +729,8 @@ public class scoreBoard extends AppCompatActivity {
 //                if (bowlerBalls == 0)
 //                    binding.bowlerecon.setText(beconomy);
 
-                binding.newbatsmanpanel.setVisibility(View.VISIBLE);
 
 
-
-            }
-        });
-
-        binding.newbatsmanbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (binding.st1.getVisibility() == View.VISIBLE)
-                {
-                    int i = wickets + 1;
-                    scStriker = binding.newbatsmaninput.getText().toString();
-                    batsman[i] = binding.newbatsmaninput.getText().toString();
-                    binding.strikersb.setText(scStriker);
-                    binding.newbatsmanpanel.setVisibility(View.INVISIBLE);
-                    batsmanRuns[i-2] = strikerRuns;
-                    String bRuns = String.valueOf(batsmanRuns[0]);
-                    Toast.makeText(scoreBoard.this, bRuns, Toast.LENGTH_SHORT).show();
-                }
-                else if (binding.st2.getVisibility() == View.VISIBLE)
-                {
-                    scnonStriker = binding.newbatsmaninput.getText().toString();
-                    batsman[wickets + 1] = binding.newbatsmaninput.getText().toString();
-                    binding.nstrikersb.setText(scnonStriker);
-                    binding.newbatsmanpanel.setVisibility(View.INVISIBLE);
-                }
             }
         });
 
