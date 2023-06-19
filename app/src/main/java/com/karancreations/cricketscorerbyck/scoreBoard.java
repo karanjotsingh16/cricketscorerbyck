@@ -60,7 +60,7 @@ public class scoreBoard extends AppCompatActivity {
     String nstrikerRuns;
     String nstrikerBalls;
     String nstrikerStRate;
-    String batsman[] = new String[11];  //Array to store name of variables
+    static String batsman[] = new String[11];  //Array to store name of variables
 
     int bowlerBalls = 0;
     int bowlerRuns = 0;
@@ -76,6 +76,23 @@ public class scoreBoard extends AppCompatActivity {
     String beconomy;
 
     String newBatsman;
+
+        static int firstInnRuns;
+        static String firstInnRunsST;
+        static int firstInnWick;
+        static String firstInnWickST;
+        static int firstInnOvers;
+        static String firstInnOversST;
+        static int firstInnballs;
+        static String firstInnBallsSt;
+
+        static int b1Runs[] = new int[11];
+        static int b1Balls[] = new int[11];
+        static int b1Fours[] = new int[11];
+        static int b1Sixes[] = new int[11];
+        static float b1StRate[] = new float[11];
+
+
 
 //    Function that starts on the start of the activity
     @Override
@@ -111,7 +128,7 @@ public class scoreBoard extends AppCompatActivity {
 
         getSupportActionBar().hide();  // To hide Title Bar
 
-        batsman[wickets+1] = com.karancreations.cricketscorerbyck.newBatsman.newBatsman;
+//        batsman[wickets+1] = com.karancreations.cricketscorerbyck.newBatsman.newBatsman;
 
 
         onStart();//Implementing on start method
@@ -149,6 +166,13 @@ public class scoreBoard extends AppCompatActivity {
                strikerStrate = (strikerRuns/strikerBalls) * 100;
                stStrikeRate = String.valueOf(strikerStrate);
                binding.strikerstrate.setText(stStrikeRate);
+
+//               Storing Batsman Stats in Array
+               b1Runs[wickets-1] = strikerRuns;
+               b1Balls[wickets-1] = strikerBalls;
+               b1Fours[wickets-1] = strikerFours;
+               b1Sixes[wickets-1] = strikerSixes;
+               b1StRate[wickets-1] = strikerStrate;
 
 //               Bowler
 
@@ -257,6 +281,13 @@ public class scoreBoard extends AppCompatActivity {
                    strikerStrate = (strikerRuns/strikerBalls) * 100;
                    stStrikeRate = String.valueOf(strikerStrate);
                    binding.strikerstrate.setText(stStrikeRate);
+
+                   //               Storing Batsman Stats in Array
+                   b1Runs[wickets-1] = strikerRuns;
+                   b1Balls[wickets-1] = strikerBalls;
+                   b1Fours[wickets-1] = strikerFours;
+                   b1Sixes[wickets-1] = strikerSixes;
+                   b1StRate[wickets-1] = strikerStrate;
 
                    binding.st1.setVisibility(View.INVISIBLE);
                    binding.st2.setVisibility(View.VISIBLE);
@@ -694,6 +725,7 @@ public class scoreBoard extends AppCompatActivity {
                 //               New Bowler Input
                 if (balls == 0)
                 {
+
                     binding.newblayout.setVisibility(View.VISIBLE);
                     binding.btnnew.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -1055,7 +1087,23 @@ public class scoreBoard extends AppCompatActivity {
 //                    binding.bowlerecon.setText(beconomy);
 
 
-                binding.newblayout.setVisibility(View.VISIBLE);
+
+//               CODE TO TERMINATE 1ST INNINGS IF THE WHOLE TEAM IS ALL OUT
+                if (wickets == (totPlayers - 1))
+                {
+                    firstInnRuns = totRuns;
+                    firstInnRunsST = String.valueOf(firstInnRuns);
+
+
+
+                    Toast.makeText(scoreBoard.this, firstInnRunsST, Toast.LENGTH_SHORT).show();
+                    binding.newblayout.setVisibility(View.INVISIBLE);
+
+                }
+
+                else {
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                }
 
 
 
@@ -1072,6 +1120,10 @@ public class scoreBoard extends AppCompatActivity {
                     newBatsman = binding.newbowbat.getText().toString();
                     scStriker = newBatsman;
                     binding.strikersb.setText(scStriker);
+
+//                    Storing batsman in Array
+                    batsman[wickets+1] = scStriker;
+//                    Toast.makeText(scoreBoard.this, batsman[wickets+1], Toast.LENGTH_SHORT).show();
 
                     strikerRuns = 0;
                     stRuns = String.valueOf(strikerRuns);
@@ -1105,6 +1157,9 @@ public class scoreBoard extends AppCompatActivity {
                     scnonStriker = newBatsman;
                     binding.nstrikersb.setText(scnonStriker);
 
+//                    Storing Batsman in Array
+                    batsman[wickets+1] = scnonStriker;
+//                    Toast.makeText(scoreBoard.this, batsman[wickets+1], Toast.LENGTH_SHORT).show();
 
                     nstRuns = 0;
                     nstrikerRuns = String.valueOf(nstRuns);
@@ -1173,6 +1228,10 @@ public class scoreBoard extends AppCompatActivity {
                             bWickets = String.valueOf(bowlerWickets);
                             binding.bowlerwickets.setText(bWickets);
 
+
+
+
+
                         }
                     });
 
@@ -1181,6 +1240,8 @@ public class scoreBoard extends AppCompatActivity {
                 }
             }
         });
+
+
 
 
 
