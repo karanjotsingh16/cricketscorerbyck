@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.karancreations.cricketscorerbyck.databinding.ActivityScoreBoardBinding;
 import com.karancreations.cricketscorerbyck.playerDetails;
@@ -74,6 +75,8 @@ public class scoreBoard extends AppCompatActivity {
     int bowlereconomy;
     String beconomy;
 
+    String newBatsman;
+
 //    Function that starts on the start of the activity
     @Override
     protected void onStart() {
@@ -112,6 +115,7 @@ public class scoreBoard extends AppCompatActivity {
 
 
         onStart();//Implementing on start method
+
 
 //        Click on 0 Button Code...
        binding.btn0run.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +173,53 @@ public class scoreBoard extends AppCompatActivity {
 //
 //               if (bowlerBalls == 0)
 //                   binding.bowlerecon.setText(beconomy);
+
+
+//               New Bowler Input
+               if (balls == 0)
+               {
+                   binding.newblayout.setVisibility(View.VISIBLE);
+                   binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           scBowler = binding.newbowbat.getText().toString();
+                           binding.bowlersb.setText(scBowler);
+                           binding.newblayout.setVisibility(View.INVISIBLE);
+
+//                          Changing the Striker after the over is complete
+                           if (binding.st1.getVisibility() == View.VISIBLE)
+                           {
+                               binding.st1.setVisibility(View.INVISIBLE);
+                               binding.st2.setVisibility(View.VISIBLE);
+                           }
+                           else if (binding.st2.getVisibility() == View.VISIBLE)
+                           {
+                               binding.st2.setVisibility(View.INVISIBLE);
+                               binding.st1.setVisibility(View.VISIBLE);
+                           }
+
+//                           Clearing Previous Bowler Stats
+                           bowlerBalls = 0;
+                           bBalls = String.valueOf(bowlerBalls);
+                           binding.bowlerballs.setText(bBalls);
+
+                           bowlerRuns = 0;
+                           bRuns = String.valueOf(bowlerRuns);
+                           binding.bowlerruns.setText(bRuns);
+
+                           bowlerOvers = 0;
+                           bOvers = String.valueOf(bowlerOvers);
+                           binding.bowlerovers.setText(bOvers);
+
+                           bowlerWickets = 0;
+                           bWickets = String.valueOf(bowlerWickets);
+                           binding.bowlerwickets.setText(bWickets);
+
+
+                       }
+                   });
+
+               }
 
 
            }
@@ -253,6 +304,53 @@ public class scoreBoard extends AppCompatActivity {
 //                   binding.bowlerecon.setText(beconomy);
 
 
+               //               New Bowler Input
+               if (balls == 0)
+               {
+                   binding.newblayout.setVisibility(View.VISIBLE);
+                   binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           scBowler = binding.newbowbat.getText().toString();
+                           binding.bowlersb.setText(scBowler);
+                           binding.newblayout.setVisibility(View.INVISIBLE);
+
+//                           Changing the Striker after the over is complete
+
+                           if (binding.st1.getVisibility() == View.VISIBLE)
+                           {
+                               binding.st1.setVisibility(View.INVISIBLE);
+                               binding.st2.setVisibility(View.VISIBLE);
+                           }
+                           else if (binding.st2.getVisibility() == View.VISIBLE)
+                           {
+                               binding.st2.setVisibility(View.INVISIBLE);
+                               binding.st1.setVisibility(View.VISIBLE);
+                           }
+
+//                           Clearing Previous Bowler Stats
+                           bowlerBalls = 0;
+                           bBalls = String.valueOf(bowlerBalls);
+                           binding.bowlerballs.setText(bBalls);
+
+                           bowlerRuns = 0;
+                           bRuns = String.valueOf(bowlerRuns);
+                           binding.bowlerruns.setText(bRuns);
+
+                           bowlerOvers = 0;
+                           bOvers = String.valueOf(bowlerOvers);
+                           binding.bowlerovers.setText(bOvers);
+
+                           bowlerWickets = 0;
+                           bWickets = String.valueOf(bowlerWickets);
+                           binding.bowlerwickets.setText(bWickets);
+
+
+                       }
+                   });
+               }
+
+
 
            }
        });
@@ -330,6 +428,51 @@ public class scoreBoard extends AppCompatActivity {
 //
 //                if (bowlerBalls == 0)
 //                    binding.bowlerecon.setText(beconomy);
+
+
+                //               New Bowler Input
+                if (balls == 0)
+                {
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                    binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            scBowler = binding.newbowbat.getText().toString();
+                            binding.bowlersb.setText(scBowler);
+                            binding.newblayout.setVisibility(View.INVISIBLE);
+
+//                            Changing the Striker after the over is complete
+                            if (binding.st1.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st1.setVisibility(View.INVISIBLE);
+                                binding.st2.setVisibility(View.VISIBLE);
+                            }
+                            else if (binding.st2.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st2.setVisibility(View.INVISIBLE);
+                                binding.st1.setVisibility(View.VISIBLE);
+                            }
+
+//                            Clearing Previous Bowler Stats
+                            bowlerBalls = 0;
+                            bBalls = String.valueOf(bowlerBalls);
+                            binding.bowlerballs.setText(bBalls);
+
+                            bowlerRuns = 0;
+                            bRuns = String.valueOf(bowlerRuns);
+                            binding.bowlerruns.setText(bRuns);
+
+                            bowlerOvers = 0;
+                            bOvers = String.valueOf(bowlerOvers);
+                            binding.bowlerovers.setText(bOvers);
+
+                            bowlerWickets = 0;
+                            bWickets = String.valueOf(bowlerWickets);
+                            binding.bowlerwickets.setText(bWickets);
+
+                        }
+                    });
+                }
 
 
             }
@@ -414,6 +557,52 @@ public class scoreBoard extends AppCompatActivity {
 //
 //                if (bowlerBalls == 0)
 //                    binding.bowlerecon.setText(beconomy);
+
+                //               New Bowler Input
+                if (balls == 0)
+                {
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                    binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            scBowler = binding.newbowbat.getText().toString();
+                            binding.bowlersb.setText(scBowler);
+                            binding.newblayout.setVisibility(View.INVISIBLE);
+
+
+//                            Changing the Striker after the over is complete
+                            if (binding.st1.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st1.setVisibility(View.INVISIBLE);
+                                binding.st2.setVisibility(View.VISIBLE);
+                            }
+                            else if (binding.st2.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st2.setVisibility(View.INVISIBLE);
+                                binding.st1.setVisibility(View.VISIBLE);
+                            }
+
+//                            Clearing Previous Bowler Stats
+                            bowlerBalls = 0;
+                            bBalls = String.valueOf(bowlerBalls);
+                            binding.bowlerballs.setText(bBalls);
+
+                            bowlerRuns = 0;
+                            bRuns = String.valueOf(bowlerRuns);
+                            binding.bowlerruns.setText(bRuns);
+
+                            bowlerOvers = 0;
+                            bOvers = String.valueOf(bowlerOvers);
+                            binding.bowlerovers.setText(bOvers);
+
+                            bowlerWickets = 0;
+                            bWickets = String.valueOf(bowlerWickets);
+                            binding.bowlerwickets.setText(bWickets);
+
+
+                        }
+                    });
+                }
 
             }
         });
@@ -502,6 +691,51 @@ public class scoreBoard extends AppCompatActivity {
 //                if (bowlerBalls == 0)
 //                    binding.bowlerecon.setText(beconomy);
 
+                //               New Bowler Input
+                if (balls == 0)
+                {
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                    binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            scBowler = binding.newbowbat.getText().toString();
+                            binding.bowlersb.setText(scBowler);
+                            binding.newblayout.setVisibility(View.INVISIBLE);
+
+
+//                            Changing the Striker after the over is complete
+                            if (binding.st1.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st1.setVisibility(View.INVISIBLE);
+                                binding.st2.setVisibility(View.VISIBLE);
+                            }
+                            else if (binding.st2.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st2.setVisibility(View.INVISIBLE);
+                                binding.st1.setVisibility(View.VISIBLE);
+                            }
+
+//                            Clearing Previous Bowler Stats
+                            bowlerBalls = 0;
+                            bBalls = String.valueOf(bowlerBalls);
+                            binding.bowlerballs.setText(bBalls);
+
+                            bowlerRuns = 0;
+                            bRuns = String.valueOf(bowlerRuns);
+                            binding.bowlerruns.setText(bRuns);
+
+                            bowlerOvers = 0;
+                            bOvers = String.valueOf(bowlerOvers);
+                            binding.bowlerovers.setText(bOvers);
+
+                            bowlerWickets = 0;
+                            bWickets = String.valueOf(bowlerWickets);
+                            binding.bowlerwickets.setText(bWickets);
+
+                        }
+                    });
+                }
+
 
 
             }
@@ -585,6 +819,51 @@ public class scoreBoard extends AppCompatActivity {
 //
 //                if (bowlerBalls == 0)
 //                    binding.bowlerecon.setText(beconomy);
+
+                //               New Bowler Input
+                if (balls == 0)
+                {
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                    binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            scBowler = binding.newbowbat.getText().toString();
+                            binding.bowlersb.setText(scBowler);
+                            binding.newblayout.setVisibility(View.INVISIBLE);
+
+//                            Changing the Striker after the over is complete
+                            if (binding.st1.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st1.setVisibility(View.INVISIBLE);
+                                binding.st2.setVisibility(View.VISIBLE);
+                            }
+                            else if (binding.st2.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st2.setVisibility(View.INVISIBLE);
+                                binding.st1.setVisibility(View.VISIBLE);
+                            }
+
+//                            Clearing Previous Bowler Stats
+                            bowlerBalls = 0;
+                            bBalls = String.valueOf(bowlerBalls);
+                            binding.bowlerballs.setText(bBalls);
+
+                            bowlerRuns = 0;
+                            bRuns = String.valueOf(bowlerRuns);
+                            binding.bowlerruns.setText(bRuns);
+
+                            bowlerOvers = 0;
+                            bOvers = String.valueOf(bowlerOvers);
+                            binding.bowlerovers.setText(bOvers);
+
+                            bowlerWickets = 0;
+                            bWickets = String.valueOf(bowlerWickets);
+                            binding.bowlerwickets.setText(bWickets);
+
+
+                        }
+                    });
+                }
 
 
             }
@@ -675,6 +954,52 @@ public class scoreBoard extends AppCompatActivity {
 
 
 
+                //               New Bowler Input
+                if (balls == 0)
+                {
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                    binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            scBowler = binding.newbowbat.getText().toString();
+                            binding.bowlersb.setText(scBowler);
+                            binding.newblayout.setVisibility(View.INVISIBLE);
+
+//                            Changing the Striker after the over is complete
+                            if (binding.st1.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st1.setVisibility(View.INVISIBLE);
+                                binding.st2.setVisibility(View.VISIBLE);
+                            }
+                            else if (binding.st2.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st2.setVisibility(View.INVISIBLE);
+                                binding.st1.setVisibility(View.VISIBLE);
+                            }
+
+//                            Clearing Previous Bowler Stats
+                            bowlerBalls = 0;
+                            bBalls = String.valueOf(bowlerBalls);
+                            binding.bowlerballs.setText(bBalls);
+
+                            bowlerRuns = 0;
+                            bRuns = String.valueOf(bowlerRuns);
+                            binding.bowlerruns.setText(bRuns);
+
+                            bowlerOvers = 0;
+                            bOvers = String.valueOf(bowlerOvers);
+                            binding.bowlerovers.setText(bOvers);
+
+                            bowlerWickets = 0;
+                            bWickets = String.valueOf(bowlerWickets);
+                            binding.bowlerwickets.setText(bWickets);
+
+
+                        }
+                    });
+                }
+
+
             }
         });
 
@@ -730,7 +1055,130 @@ public class scoreBoard extends AppCompatActivity {
 //                    binding.bowlerecon.setText(beconomy);
 
 
+                binding.newblayout.setVisibility(View.VISIBLE);
 
+
+
+            }
+        });
+
+//        CODE TO INPUT NEW BATSMAN
+        binding.btnnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                IF STRIKER IS OUT
+                if (binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    newBatsman = binding.newbowbat.getText().toString();
+                    scStriker = newBatsman;
+                    binding.strikersb.setText(scStriker);
+
+                    strikerRuns = 0;
+                    stRuns = String.valueOf(strikerRuns);
+                    binding.strikerruns.setText(stRuns);
+
+                    strikerBalls = 0;
+                    stBalls = String.valueOf(strikerBalls);
+                    binding.strikerballs.setText(stBalls);
+
+                    strikerFours = 0;
+                    stFours = String.valueOf(strikerFours);
+                    binding.strikerfours.setText(stFours);
+
+                    strikerSixes = 0;
+                    stSixes = String.valueOf(strikerSixes);
+                    binding.strikersixes.setText(stSixes);
+
+                    strikerStrate = 0;
+                    stStrikeRate = String.valueOf(strikerStrate);
+                    binding.strikerstrate.setText(stStrikeRate);
+
+
+
+                    binding.newblayout.setVisibility(View.INVISIBLE);
+
+                }
+//                IF NON-STRIKER IS OUT
+                if (binding.st2.getVisibility() == View.VISIBLE)
+                {
+                    newBatsman = binding.newbowbat.getText().toString();
+                    scnonStriker = newBatsman;
+                    binding.nstrikersb.setText(scnonStriker);
+
+
+                    nstRuns = 0;
+                    nstrikerRuns = String.valueOf(nstRuns);
+                    binding.nstrikerruns.setText(nstrikerRuns);
+
+                    nstBalls = 0;
+                    nstrikerBalls = String.valueOf(nstBalls);
+                    binding.nstrikerballs.setText(nstrikerBalls);
+
+                    nstFours = 0;
+                    nstrikerFours = String.valueOf(nstFours);
+                    binding.nstrikerfours.setText(nstrikerFours);
+
+                    nstSixes = 0;
+                    nstrikerSixes = String.valueOf(nstSixes);
+                    binding.nstrikersixes.setText(nstrikerSixes);
+
+                    nstStRate = 0;
+                    nstrikerStRate = String.valueOf(nstStRate);
+                    binding.nstrikerstrate.setText(nstrikerStRate);
+
+
+                    binding.newblayout.setVisibility(View.INVISIBLE);
+                }
+
+                //               New Bowler Input
+                if (balls == 0)
+                {
+
+
+                    Toast.makeText(scoreBoard.this, "Enter Bowler Name", Toast.LENGTH_SHORT).show();
+                    binding.newblayout.setVisibility(View.VISIBLE);
+                    binding.btnnew.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            scBowler = binding.newbowbat.getText().toString();
+                            binding.bowlersb.setText(scBowler);
+                            binding.newblayout.setVisibility(View.INVISIBLE);
+
+//                            Changing the Striker after the over is complete
+                            if (binding.st1.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st1.setVisibility(View.INVISIBLE);
+                                binding.st2.setVisibility(View.VISIBLE);
+                            }
+                            else if (binding.st2.getVisibility() == View.VISIBLE)
+                            {
+                                binding.st2.setVisibility(View.INVISIBLE);
+                                binding.st1.setVisibility(View.VISIBLE);
+                            }
+
+//                            Clearing Previous Bowler Stats
+                            bowlerBalls = 0;
+                            bBalls = String.valueOf(bowlerBalls);
+                            binding.bowlerballs.setText(bBalls);
+
+                            bowlerRuns = 0;
+                            bRuns = String.valueOf(bowlerRuns);
+                            binding.bowlerruns.setText(bRuns);
+
+                            bowlerOvers = 0;
+                            bOvers = String.valueOf(bowlerOvers);
+                            binding.bowlerovers.setText(bOvers);
+
+                            bowlerWickets = 0;
+                            bWickets = String.valueOf(bowlerWickets);
+                            binding.bowlerwickets.setText(bWickets);
+
+                        }
+                    });
+
+
+
+                }
             }
         });
 
