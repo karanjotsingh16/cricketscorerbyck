@@ -2,19 +2,16 @@ package com.karancreations.cricketscorerbyck;
 
 import static com.karancreations.cricketscorerbyck.CustomMatchInput.tOvers;
 
-import androidx.appcompat.app.AppCompatActivity;
-import java.lang.Math;
-
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.karancreations.cricketscorerbyck.databinding.ActivityScoreBoardBinding;
-import com.karancreations.cricketscorerbyck.playerDetails;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class scoreBoard extends AppCompatActivity {
+import com.karancreations.cricketscorerbyck.databinding.ActivityScoreBoardBinding;
+
+public class scoreBoardSecond extends AppCompatActivity {
     ActivityScoreBoardBinding binding;
 
     String scStriker;
@@ -94,8 +91,6 @@ public class scoreBoard extends AppCompatActivity {
         static int b1Fours[] = new int[11];
         static int b1Sixes[] = new int[11];
         static float b1StRate[] = new float[11];
-
-        int k = 0;
 
 
 
@@ -210,13 +205,6 @@ public class scoreBoard extends AppCompatActivity {
                    binding.btnnewbowler.setOnClickListener(new View.OnClickListener() {
                        @Override
                        public void onClick(View view) {
-
-                           if (k == 1)
-                           {
-                               Intent playerDetailsSecond = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                               startActivity(playerDetailsSecond);
-                           }
-
                            scBowler = binding.newbowler.getText().toString();
                            binding.bowlersb.setText(scBowler);
                            binding.newbowlerlayout.setVisibility(View.INVISIBLE);
@@ -271,9 +259,6 @@ public class scoreBoard extends AppCompatActivity {
                    firstInnOvers = overs;
                    firstInnOversST = String.valueOf(firstInnOvers);
 
-                   k = 1;
-//                   Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-//                   startActivity(secondInn);
 
 
 
@@ -430,9 +415,6 @@ public class scoreBoard extends AppCompatActivity {
 
                    firstInnOvers = overs;
                    firstInnOversST = String.valueOf(firstInnOvers);
-
-                   Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                   startActivity(secondInn);
                }
 
 
@@ -574,9 +556,6 @@ public class scoreBoard extends AppCompatActivity {
 
                     firstInnOvers = overs;
                     firstInnOversST = String.valueOf(firstInnOvers);
-
-                    Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                    startActivity(secondInn);
                 }
 
 
@@ -724,9 +703,6 @@ public class scoreBoard extends AppCompatActivity {
 
                     firstInnOvers = overs;
                     firstInnOversST = String.valueOf(firstInnOvers);
-
-                    Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                    startActivity(secondInn);
                 }
 
 
@@ -879,9 +855,6 @@ public class scoreBoard extends AppCompatActivity {
 
                     firstInnOvers = overs;
                     firstInnOversST = String.valueOf(firstInnOvers);
-
-                    Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                    startActivity(secondInn);
                 }
 
 
@@ -1028,9 +1001,6 @@ public class scoreBoard extends AppCompatActivity {
 
                     firstInnOvers = overs;
                     firstInnOversST = String.valueOf(firstInnOvers);
-
-                    Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                    startActivity(secondInn);
                 }
 
 
@@ -1182,9 +1152,6 @@ public class scoreBoard extends AppCompatActivity {
 
                     firstInnOvers = overs;
                     firstInnOversST = String.valueOf(firstInnOvers);
-
-                    Intent secondInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                    startActivity(secondInn);
                 }
 
 
@@ -1301,7 +1268,7 @@ public class scoreBoard extends AppCompatActivity {
 //                IF STRIKER IS OUT
                 if (binding.st1.getVisibility() == View.VISIBLE)
                 {
-                    Toast.makeText(scoreBoard.this, "Enter New Batsman", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(scoreBoardSecond.this, "Enter New Batsman", Toast.LENGTH_SHORT).show();
                     newBatsman = binding.newbatsman.getText().toString();
                     scStriker = newBatsman;
                     binding.strikersb.setText(scStriker);
@@ -1338,7 +1305,7 @@ public class scoreBoard extends AppCompatActivity {
 //                IF NON-STRIKER IS OUT
                 else if (binding.st2.getVisibility() == View.VISIBLE)
                 {
-                    Toast.makeText(scoreBoard.this, "Enter New Batsman", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(scoreBoardSecond.this, "Enter New Batsman", Toast.LENGTH_SHORT).show();
                     newBatsman = binding.newbatsman.getText().toString();
                     scnonStriker = newBatsman;
                     binding.nstrikersb.setText(scnonStriker);
@@ -1376,7 +1343,7 @@ public class scoreBoard extends AppCompatActivity {
                 {
 
 
-                    Toast.makeText(scoreBoard.this, "Enter Bowler Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(scoreBoardSecond.this, "Enter Bowler Name", Toast.LENGTH_SHORT).show();
                     binding.newbowlerlayout.setVisibility(View.VISIBLE);
                     binding.btnnewbowler.setOnClickListener(new View.OnClickListener() {
                         @Override

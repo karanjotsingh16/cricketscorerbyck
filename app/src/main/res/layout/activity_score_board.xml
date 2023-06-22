@@ -8,10 +8,10 @@
     tools:context=".scoreBoard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/newblayout"
+        android:id="@+id/newbatsmanlayout"
         android:layout_width="390dp"
         android:layout_height="100dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bg"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <EditText
-            android:id="@+id/newbowbat"
+            android:id="@+id/newbatsman"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -31,13 +31,46 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnnew"
+            android:id="@+id/btnnewbatsman"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:text="Done"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newbowbat" />
+            app:layout_constraintTop_toBottomOf="@+id/newbatsman" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/newbowlerlayout"
+        android:layout_width="390dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+        <EditText
+            android:id="@+id/newbowler"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnnewbowler"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newbowler" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

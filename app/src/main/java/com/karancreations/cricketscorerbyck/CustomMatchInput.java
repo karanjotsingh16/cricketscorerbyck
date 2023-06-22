@@ -20,6 +20,7 @@ public class CustomMatchInput extends AppCompatActivity {
     static String totPlayers;
 
     static String bat;
+    static int tOvers;
 
 
     @Override
@@ -80,6 +81,7 @@ public class CustomMatchInput extends AppCompatActivity {
 
 //        Selecting bat or bowl Radio Buttons
                 totOvers = binding.overs.getText().toString();
+                tOvers = Integer.parseInt(totOvers);
 
 //        Storing total number of Players per team
                 totPlayers = binding.players.getText().toString();
