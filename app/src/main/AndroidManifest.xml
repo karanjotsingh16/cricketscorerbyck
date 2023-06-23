@@ -15,6 +15,12 @@
             android:name=".newBatsman"
             android:exported="false" />
         <activity
+            android:name=".playerDetailsSecond"
+            android:exported="false" />
+        <activity
+            android:name=".scoreBoardSecond"
+            android:exported="false" />
+        <activity
             android:name=".scoreBoard"
             android:exported="false" />
         <activity

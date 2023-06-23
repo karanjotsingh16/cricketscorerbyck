@@ -13,9 +13,9 @@ public class playerDetailsSecond extends AppCompatActivity {
 
     ActivityPlayerDetailsSecondBinding binding;
 
-    static String striker;
-    static String nonStriker;
-    static String openingBowler;
+    static String strikerSecInn;
+    static String nonStrikerSecInn;
+    static String openingBowlerSecInn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,9 @@ public class playerDetailsSecond extends AppCompatActivity {
         binding.nextbtnplayerdetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                striker = binding.striker.getText().toString();
-                nonStriker = binding.nstriker.getText().toString();
-                openingBowler = binding.obowler.getText().toString();
+                strikerSecInn = binding.striker.getText().toString();
+                nonStrikerSecInn = binding.nstriker.getText().toString();
+                openingBowlerSecInn = binding.obowler.getText().toString();
                 Intent scoreboardSecond = new Intent(getApplicationContext(), scoreBoardSecond.class);
                 startActivity(scoreboardSecond);
             }
