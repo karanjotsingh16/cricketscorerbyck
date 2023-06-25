@@ -80,22 +80,30 @@ public class scoreBoardSecond extends AppCompatActivity {
     String newBatsman;
 
 
-        static int firstInnRuns;
-        static String firstInnRunsST;
-        static int firstInnWick;
-        static String firstInnWickST;
-        static int firstInnOvers;
-        static String firstInnOversST;
-        static int firstInnballs;
-        static String firstInnBallsSt;
+//        static int firstInnRuns;
+//        static String firstInnRunsST;
+//        static int firstInnWick;
+//        static String firstInnWickST;
+//        static int firstInnOvers;
+//        static String firstInnOversST;
+//        static int firstInnballs;
+//        static String firstInnBallsSt;
 
-        static int b1Runs[] = new int[11];
-        static int b1Balls[] = new int[11];
-        static int b1Fours[] = new int[11];
-        static int b1Sixes[] = new int[11];
-        static float b1StRate[] = new float[11];
+//        static int b1Runs[] = new int[11];
+//        static int b1Balls[] = new int[11];
+//        static int b1Fours[] = new int[11];
+//        static int b1Sixes[] = new int[11];
+//        static float b1StRate[] = new float[11];
 
-        int k = 0;
+        String fInnRuns;
+        String ballsLeft;
+        int ballsLeftINT;
+
+        String reqRuns;
+        int reqRunsINT;
+        int fIRuns;
+
+        String Overs;
 
 
 
@@ -111,6 +119,14 @@ public class scoreBoardSecond extends AppCompatActivity {
         teambat = CustomMatchInput.bat;//store value of batting team name to a variable from another activity
 
         totPlayers = Integer.parseInt(CustomMatchInput.totPlayers);//store value of total players from another activity
+        Overs = CustomMatchInput.totOvers;//store value of total overs from another activity
+
+        ballsLeftINT = Integer.parseInt(Overs) * 6;
+        ballsLeft = String.valueOf(ballsLeftINT);
+
+
+        fInnRuns = scoreBoard.firstInnRunsST;// TO STORE RUN SCORED IN FIRST INNINGS
+        fIRuns = Integer.parseInt(fInnRuns);
 
         batsman[0] = scStriker;//storing name of 1st batsman in array
         batsman[1] = scnonStriker;//storing name of 2nd batsman in array
@@ -121,6 +137,14 @@ public class scoreBoardSecond extends AppCompatActivity {
         binding.t1name.setText(team1);//changing text of Team1 in frontend
         binding.t2name.setText(team2);//changing text of Team2 in frontend
         binding.batteam.setText(teambat);//changing text of Batting team in frontend
+
+        binding.targetruns.setText(fInnRuns);
+        binding.ballsleft.setText(ballsLeft);
+
+//      UPDATING REQUIRED RUNS
+        reqRunsINT = Math.abs(totRuns - fIRuns);
+        reqRuns = String.valueOf(reqRunsINT);
+        binding.reqruns.setText(reqRuns);
 
     }
 
@@ -145,6 +169,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                totRuns += 0;//to update total runs
                runs = Integer.toString(totRuns);//converting int runs to string runs
                binding.totruns.setText(runs);//changing runs in frontend
+
+
+//               UPDATING REQUIRED RUNS
+               reqRunsINT = Math.abs(totRuns - fIRuns);
+               reqRuns = String.valueOf(reqRunsINT);
+               binding.reqruns.setText(reqRuns);
+
+//               UPDATING BALLS LEFT
+               ballsLeftINT -= 1;
+               ballsLeft = String.valueOf(ballsLeftINT);
+               binding.ballsleft.setText(ballsLeft);
 
                balls += 1;// updating balls
                if (balls == 6){
@@ -252,17 +287,17 @@ public class scoreBoardSecond extends AppCompatActivity {
 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                if (overs == tOvers)
                {
-                   firstInnRuns = totRuns;
-                   firstInnRunsST = String.valueOf(firstInnRuns);
-
-                   firstInnballs = balls;
-                   firstInnBallsSt = String.valueOf(firstInnballs);
-
-                   firstInnWick = wickets;
-                   firstInnWickST = String.valueOf(firstInnWick);
-
-                   firstInnOvers = overs;
-                   firstInnOversST = String.valueOf(firstInnOvers);
+//                   firstInnRuns = totRuns;
+//                   firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                   firstInnballs = balls;
+//                   firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                   firstInnWick = wickets;
+//                   firstInnWickST = String.valueOf(firstInnWick);
+//
+//                   firstInnOvers = overs;
+//                   firstInnOversST = String.valueOf(firstInnOvers);
 
 
 //                   CODE TO START SECOND INNINGS...
@@ -271,7 +306,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                    // Set the message show for the Alert time
-                   builder.setMessage("Target: " + firstInnRunsST );
+//                   builder.setMessage("Target: " + firstInnRunsST );
 
                    // Set Alert Title
                    builder.setTitle("First Innings OVER!");
@@ -318,6 +353,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                totRuns += 1;
                runs = Integer.toString(totRuns);
                binding.totruns.setText(runs);
+
+//               UPDATING REQUIRED RUNS
+               reqRunsINT = Math.abs(totRuns - fIRuns);
+               reqRuns = String.valueOf(reqRunsINT);
+               binding.reqruns.setText(reqRuns);
+
+               //               UPDATING BALLS LEFT
+               ballsLeftINT -= 1;
+               ballsLeft = String.valueOf(ballsLeftINT);
+               binding.ballsleft.setText(ballsLeft);
 
                balls += 1;
                if (balls == 6){
@@ -446,17 +491,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                if (overs == tOvers)
                {
-                   firstInnRuns = totRuns;
-                   firstInnRunsST = String.valueOf(firstInnRuns);
-
-                   firstInnballs = balls;
-                   firstInnBallsSt = String.valueOf(firstInnballs);
-
-                   firstInnWick = wickets;
-                   firstInnWickST = String.valueOf(firstInnWick);
-
-                   firstInnOvers = overs;
-                   firstInnOversST = String.valueOf(firstInnOvers);
+//                   firstInnRuns = totRuns;
+//                   firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                   firstInnballs = balls;
+//                   firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                   firstInnWick = wickets;
+//                   firstInnWickST = String.valueOf(firstInnWick);
+//
+//                   firstInnOvers = overs;
+//                   firstInnOversST = String.valueOf(firstInnOvers);
 
 
                    //                   CODE TO START SECOND INNINGS...
@@ -465,7 +510,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                    // Set the message show for the Alert time
-                   builder.setMessage("Target: " + firstInnRunsST );
+//                   builder.setMessage("Target: " + firstInnRunsST );
 
                    // Set Alert Title
                    builder.setTitle("First Innings OVER!");
@@ -512,6 +557,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                 totRuns += 2;
                 runs = Integer.toString(totRuns);
                 binding.totruns.setText(runs);
+
+                //               UPDATING REQUIRED RUNS
+                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRuns = String.valueOf(reqRunsINT);
+                binding.reqruns.setText(reqRuns);
+
+                //               UPDATING BALLS LEFT
+                ballsLeftINT -= 1;
+                ballsLeft = String.valueOf(ballsLeftINT);
+                binding.ballsleft.setText(ballsLeft);
 
                 balls += 1;
                 if (balls == 6){
@@ -627,17 +682,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                 if (overs == tOvers)
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
 
                     //                   CODE TO START SECOND INNINGS...
@@ -646,7 +701,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
@@ -694,6 +749,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                 totRuns += 3;
                 runs = Integer.toString(totRuns);
                 binding.totruns.setText(runs);
+
+                //               UPDATING REQUIRED RUNS
+                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRuns = String.valueOf(reqRunsINT);
+                binding.reqruns.setText(reqRuns);
+
+                //               UPDATING BALLS LEFT
+                ballsLeftINT -= 1;
+                ballsLeft = String.valueOf(ballsLeftINT);
+                binding.ballsleft.setText(ballsLeft);
 
                 balls += 1;
                 if (balls == 6){
@@ -816,17 +881,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                 if (overs == tOvers)
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
 
                     //                   CODE TO START SECOND INNINGS...
@@ -835,7 +900,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
@@ -884,6 +949,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                 totRuns += 4;
                 runs = Integer.toString(totRuns);
                 binding.totruns.setText(runs);
+
+                //               UPDATING REQUIRED RUNS
+                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRuns = String.valueOf(reqRunsINT);
+                binding.reqruns.setText(reqRuns);
+
+                //               UPDATING BALLS LEFT
+                ballsLeftINT -= 1;
+                ballsLeft = String.valueOf(ballsLeftINT);
+                binding.ballsleft.setText(ballsLeft);
 
                 balls += 1;
                 if (balls == 6){
@@ -1010,17 +1085,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                 if (overs == tOvers)
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
                     //                   CODE TO START SECOND INNINGS...
 
@@ -1028,7 +1103,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
@@ -1076,6 +1151,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                 totRuns += 5;
                 runs = Integer.toString(totRuns);
                 binding.totruns.setText(runs);
+
+                //               UPDATING REQUIRED RUNS
+                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRuns = String.valueOf(reqRunsINT);
+                binding.reqruns.setText(reqRuns);
+
+                //               UPDATING BALLS LEFT
+                ballsLeftINT -= 1;
+                ballsLeft = String.valueOf(ballsLeftINT);
+                binding.ballsleft.setText(ballsLeft);
 
                 balls += 1;
                 if (balls == 6){
@@ -1197,17 +1282,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                 if (overs == tOvers)
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
                     //                   CODE TO START SECOND INNINGS...
 
@@ -1215,7 +1300,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
@@ -1261,6 +1346,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                 totRuns += 6;
                 runs = Integer.toString(totRuns);
                 binding.totruns.setText(runs);
+
+                //               UPDATING REQUIRED RUNS
+                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRuns = String.valueOf(reqRunsINT);
+                binding.reqruns.setText(reqRuns);
+
+                //               UPDATING BALLS LEFT
+                ballsLeftINT -= 1;
+                ballsLeft = String.valueOf(ballsLeftINT);
+                binding.ballsleft.setText(ballsLeft);
 
                 balls += 1;
                 if (balls == 6){
@@ -1388,17 +1483,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                 if (overs == tOvers)
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
                     //                   CODE TO START SECOND INNINGS...
 
@@ -1406,7 +1501,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
@@ -1452,6 +1547,16 @@ public class scoreBoardSecond extends AppCompatActivity {
                 wickets += 1;//updating wickets
                 wick = Integer.toString(wickets);//int to string
                 binding.totwickets.setText(wick);//changing wickets in frontend
+
+                //               UPDATING REQUIRED RUNS
+                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRuns = String.valueOf(reqRunsINT);
+                binding.reqruns.setText(reqRuns);
+
+                //               UPDATING BALLS LEFT
+                ballsLeftINT -= 1;
+                ballsLeft = String.valueOf(ballsLeftINT);
+                binding.ballsleft.setText(ballsLeft);
 
                 balls += 1;//updating balls
                 if (balls == 6){
@@ -1501,17 +1606,17 @@ public class scoreBoardSecond extends AppCompatActivity {
 //               CODE TO TERMINATE 1ST INNINGS IF THE WHOLE TEAM IS ALL OUT
                 if (wickets == (totPlayers - 1))
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
                     //                   CODE TO START SECOND INNINGS...
 
@@ -1519,7 +1624,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
@@ -1563,17 +1668,17 @@ public class scoreBoardSecond extends AppCompatActivity {
                 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
                 if (overs == tOvers)
                 {
-                    firstInnRuns = totRuns;
-                    firstInnRunsST = String.valueOf(firstInnRuns);
-
-                    firstInnballs = balls;
-                    firstInnBallsSt = String.valueOf(firstInnballs);
-
-                    firstInnWick = wickets;
-                    firstInnWickST = String.valueOf(firstInnWick);
-
-                    firstInnOvers = overs;
-                    firstInnOversST = String.valueOf(firstInnOvers);
+//                    firstInnRuns = totRuns;
+//                    firstInnRunsST = String.valueOf(firstInnRuns);
+//
+//                    firstInnballs = balls;
+//                    firstInnBallsSt = String.valueOf(firstInnballs);
+//
+//                    firstInnWick = wickets;
+//                    firstInnWickST = String.valueOf(firstInnWick);
+//
+//                    firstInnOvers = overs;
+//                    firstInnOversST = String.valueOf(firstInnOvers);
 
                     //                   CODE TO START SECOND INNINGS...
 
@@ -1581,7 +1686,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-                    builder.setMessage("Target: " + firstInnRunsST );
+//                    builder.setMessage("Target: " + firstInnRunsST );
 
                     // Set Alert Title
                     builder.setTitle("First Innings OVER!");
