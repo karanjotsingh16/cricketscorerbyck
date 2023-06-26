@@ -231,74 +231,71 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
         <Button
-            android:id="@+id/widebtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Wide"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/legbyebtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:text="Leg bye"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/widebtn" />
-
-        <Button
             android:id="@+id/swapbatsmanbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Swap Batsman"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/retirebtn"
-            app:layout_constraintTop_toBottomOf="@+id/widebtn" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/retirebtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
             android:text="Retire"
-            app:layout_constraintStart_toEndOf="@+id/legbyebtn"
-            app:layout_constraintTop_toBottomOf="@+id/noballbtn" />
-
-        <Button
-            android:id="@+id/byebtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
-            android:text="Bye"
-            app:layout_constraintStart_toEndOf="@+id/noballbtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/swapbatsmanbtn"
+            app:layout_constraintStart_toEndOf="@+id/undobtn" />
 
         <Button
             android:id="@+id/undobtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Undo"
-            app:layout_constraintStart_toEndOf="@+id/byebtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/noballbtn"
+        <CheckBox
+            android:id="@+id/checkBoxWide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Wide"
+            app:layout_constraintBottom_toTopOf="@+id/undobtn"
+            app:layout_constraintStart_toStartOf="@+id/undobtn" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNoBall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:text="No Ball"
-            app:layout_constraintStart_toEndOf="@+id/widebtn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/retirebtn"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxWide" />
+
+        <CheckBox
+            android:id="@+id/checkBoxBye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Bye"
+            app:layout_constraintBottom_toTopOf="@+id/retirebtn"
+            app:layout_constraintEnd_toStartOf="@+id/checkBoxLegBye" />
+
+        <CheckBox
+            android:id="@+id/checkBoxLegBye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Leg Bye"
+            app:layout_constraintBottom_toTopOf="@+id/swapbatsmanbtn"
+            app:layout_constraintEnd_toEndOf="@+id/swapbatsmanbtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
