@@ -152,8 +152,37 @@ public class scoreBoard extends AppCompatActivity {
                    runs = Integer.toString(totRuns);//converting int runs to string runs
                    binding.totruns.setText(runs);//changing runs in frontend
 
+                   bowlerRuns += 1;
+                   bRuns = Integer.toString(bowlerRuns);
+                   binding.bowlerruns.setText(bRuns);
 
                    binding.checkBoxWide.setChecked(false);
+
+               }
+               if (binding.checkBoxNoBall.isChecked())
+               {
+                   totRuns += 1;//to update total runs
+                   runs = Integer.toString(totRuns);//converting int runs to string runs
+                   binding.totruns.setText(runs);//changing runs in frontend
+
+                   if (binding.st1.getVisibility() == View.VISIBLE)
+                   {
+                       strikerBalls += 1;//updating striker balls
+                       stBalls = Integer.toString(strikerBalls);//int to string
+                       binding.strikerballs.setText(stBalls);//changing striker balls in frontend
+                   }
+                   else if (binding.st2.getVisibility() == View.VISIBLE)
+                   {
+                       nstBalls += 1;//updating striker balls
+                       nstrikerBalls = Integer.toString(nstBalls);//int to string
+                       binding.nstrikerballs.setText(nstrikerBalls);//changing striker balls in frontend
+                   }
+
+                   bowlerRuns += 1;
+                   bRuns = Integer.toString(bowlerRuns);
+                   binding.bowlerruns.setText(bRuns);
+
+                   binding.checkBoxNoBall.setChecked(false);
 
                }
                else {
@@ -172,19 +201,39 @@ public class scoreBoard extends AppCompatActivity {
                    binding.balls.setText(totBalls);//changing balls in frontend
                    binding.totovers.setText(totOvers);//changing overs in frontend
 
-                   strikerRuns += 0;//updating striker runs
-                   stRuns = Integer.toString(strikerRuns);//int to string
-                   binding.strikerruns.setText(stRuns);//changing striker runs in frontend
+                   if (binding.st1.getVisibility() == View.VISIBLE)
+                   {
+                       strikerRuns += 0;//updating striker runs
+                       stRuns = Integer.toString(strikerRuns);//int to string
+                       binding.strikerruns.setText(stRuns);//changing striker runs in frontend
 
-                   strikerBalls += 1;//updating striker balls
-                   stBalls = Integer.toString(strikerBalls);//int to string
-                   binding.strikerballs.setText(stBalls);//changing striker balls in frontend
+                       strikerBalls += 1;//updating striker balls
+                       stBalls = Integer.toString(strikerBalls);//int to string
+                       binding.strikerballs.setText(stBalls);//changing striker balls in frontend
+
+                       //               Calculating and updating Strike Rate
+                       strikerStrate = (strikerRuns / strikerBalls) * 100;
+                       stStrikeRate = String.valueOf(strikerStrate);
+                       binding.strikerstrate.setText(stStrikeRate);
+                   }
+                   else if (binding.st2.getVisibility() == View.VISIBLE)
+                   {
+                       nstRuns += 0;
+                       nstrikerRuns = Integer.toString(nstRuns);
+                       binding.nstrikerruns.setText(nstrikerRuns);
+
+                       nstBalls += 1;
+                       nstrikerBalls = Integer.toString(nstBalls);
+                       binding.nstrikerballs.setText(nstrikerBalls);
+
+                       nstStRate = (strikerRuns / strikerBalls) * 100;
+                       nstrikerStRate = String.valueOf(nstStRate);
+                       binding.nstrikerstrate.setText(nstrikerStRate);
+                   }
 
 
-//               Calculating and updating Strike Rate
-                   strikerStrate = (strikerRuns / strikerBalls) * 100;
-                   stStrikeRate = String.valueOf(strikerStrate);
-                   binding.strikerstrate.setText(stStrikeRate);
+
+
 
 //               Storing Batsman Stats in Array
 //               b1Runs[wickets-1] = strikerRuns;
@@ -345,7 +394,61 @@ public class scoreBoard extends AppCompatActivity {
                        binding.st1.setVisibility(View.VISIBLE);
                    }
 
+                   bowlerRuns += 2;
+                   bRuns = Integer.toString(bowlerRuns);
+                   binding.bowlerruns.setText(bRuns);
+
                    binding.checkBoxWide.setChecked(false);
+
+               }
+
+//               CODE FOR NO BALL
+               if (binding.checkBoxNoBall.isChecked())
+               {
+                   totRuns += 2;//to update total runs
+                   runs = Integer.toString(totRuns);//converting int runs to string runs
+                   binding.totruns.setText(runs);//changing runs in frontend
+
+                   if (binding.st1.getVisibility() == View.VISIBLE)
+                   {
+                       strikerRuns += 1;
+                       stRuns = Integer.toString(strikerRuns);
+                       binding.strikerruns.setText(stRuns);
+
+                       strikerBalls += 1;
+                       stBalls = Integer.toString(strikerBalls);
+                       binding.strikerballs.setText(stBalls);
+
+                       strikerStrate = (strikerRuns / strikerBalls) * 100;
+                       stStrikeRate = String.valueOf(strikerStrate);
+                       binding.strikerstrate.setText(stStrikeRate);
+
+                       binding.st1.setVisibility(View.INVISIBLE);
+                       binding.st2.setVisibility(View.VISIBLE);
+                   }
+                   else if (binding.st2.getVisibility() == View.VISIBLE)
+                   {
+                       nstRuns += 1;
+                       nstrikerRuns = Integer.toString(nstRuns);
+                       binding.nstrikerruns.setText(nstrikerRuns);
+
+                       nstBalls += 1;
+                       nstrikerBalls = Integer.toString(nstBalls);
+                       binding.nstrikerballs.setText(nstrikerBalls);
+
+                       nstStRate = (strikerRuns / strikerBalls) * 100;
+                       nstrikerStRate = String.valueOf(nstStRate);
+                       binding.nstrikerstrate.setText(nstrikerStRate);
+
+                       binding.st2.setVisibility(View.INVISIBLE);
+                       binding.st1.setVisibility(View.VISIBLE);
+                   }
+
+                   bowlerRuns += 2;
+                   bRuns = Integer.toString(bowlerRuns);
+                   binding.bowlerruns.setText(bRuns);
+
+                   binding.checkBoxNoBall.setChecked(false);
 
                }
 
@@ -545,10 +648,64 @@ public class scoreBoard extends AppCompatActivity {
                     runs = Integer.toString(totRuns);//converting int runs to string runs
                     binding.totruns.setText(runs);//changing runs in frontend
 
+
+                    bowlerRuns += 3;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
                     binding.checkBoxWide.setChecked(false);
 
                 }
-                    else {
+
+                //               CODE FOR NO BALL
+                if (binding.checkBoxNoBall.isChecked())
+                {
+                    totRuns += 3;//to update total runs
+                    runs = Integer.toString(totRuns);//converting int runs to string runs
+                    binding.totruns.setText(runs);//changing runs in frontend
+
+                    if (binding.st1.getVisibility() == View.VISIBLE)
+                    {
+                        strikerRuns += 2;
+                        stRuns = Integer.toString(strikerRuns);
+                        binding.strikerruns.setText(stRuns);
+
+                        strikerBalls += 1;
+                        stBalls = Integer.toString(strikerBalls);
+                        binding.strikerballs.setText(stBalls);
+
+                        strikerStrate = (strikerRuns / strikerBalls) * 100;
+                        stStrikeRate = String.valueOf(strikerStrate);
+                        binding.strikerstrate.setText(stStrikeRate);
+
+                    }
+                    else if (binding.st2.getVisibility() == View.VISIBLE)
+                    {
+                        nstRuns += 2;
+                        nstrikerRuns = Integer.toString(nstRuns);
+                        binding.nstrikerruns.setText(nstrikerRuns);
+
+                        nstBalls += 1;
+                        nstrikerBalls = Integer.toString(nstBalls);
+                        binding.nstrikerballs.setText(nstrikerBalls);
+
+                        nstStRate = (strikerRuns / strikerBalls) * 100;
+                        nstrikerStRate = String.valueOf(nstStRate);
+                        binding.nstrikerstrate.setText(nstrikerStRate);
+
+                    }
+
+                    bowlerRuns += 3;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
+                    binding.checkBoxNoBall.setChecked(false);
+
+                }
+
+
+
+                else {
 
                         totRuns += 2;
                         runs = Integer.toString(totRuns);
@@ -741,9 +898,66 @@ public class scoreBoard extends AppCompatActivity {
                         binding.st1.setVisibility(View.VISIBLE);
                     }
 
+                    bowlerRuns += 4;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
                     binding.checkBoxWide.setChecked(false);
 
                 }
+
+                //               CODE FOR NO BALL
+                if (binding.checkBoxNoBall.isChecked())
+                {
+                    totRuns += 4;//to update total runs
+                    runs = Integer.toString(totRuns);//converting int runs to string runs
+                    binding.totruns.setText(runs);//changing runs in frontend
+
+                    if (binding.st1.getVisibility() == View.VISIBLE)
+                    {
+                        strikerRuns += 3;
+                        stRuns = Integer.toString(strikerRuns);
+                        binding.strikerruns.setText(stRuns);
+
+                        strikerBalls += 1;
+                        stBalls = Integer.toString(strikerBalls);
+                        binding.strikerballs.setText(stBalls);
+
+                        strikerStrate = (strikerRuns / strikerBalls) * 100;
+                        stStrikeRate = String.valueOf(strikerStrate);
+                        binding.strikerstrate.setText(stStrikeRate);
+
+                        binding.st1.setVisibility(View.INVISIBLE);
+                        binding.st2.setVisibility(View.VISIBLE);
+
+                    }
+                    else if (binding.st2.getVisibility() == View.VISIBLE)
+                    {
+                        nstRuns += 3;
+                        nstrikerRuns = Integer.toString(nstRuns);
+                        binding.nstrikerruns.setText(nstrikerRuns);
+
+                        nstBalls += 1;
+                        nstrikerBalls = Integer.toString(nstBalls);
+                        binding.nstrikerballs.setText(nstrikerBalls);
+
+                        nstStRate = (strikerRuns / strikerBalls) * 100;
+                        nstrikerStRate = String.valueOf(nstStRate);
+                        binding.nstrikerstrate.setText(nstrikerStRate);
+
+                        binding.st2.setVisibility(View.INVISIBLE);
+                        binding.st1.setVisibility(View.VISIBLE);
+
+                    }
+
+                    bowlerRuns += 4;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
+                    binding.checkBoxNoBall.setChecked(false);
+
+                }
+
                 else {
                     totRuns += 3;
                     runs = Integer.toString(totRuns);
@@ -933,9 +1147,61 @@ public class scoreBoard extends AppCompatActivity {
                     runs = Integer.toString(totRuns);//converting int runs to string runs
                     binding.totruns.setText(runs);//changing runs in frontend
 
+                    bowlerRuns += 5;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
                     binding.checkBoxWide.setChecked(false);
 
                 }
+
+                //               CODE FOR NO BALL
+                if (binding.checkBoxNoBall.isChecked())
+                {
+                    totRuns += 5;//to update total runs
+                    runs = Integer.toString(totRuns);//converting int runs to string runs
+                    binding.totruns.setText(runs);//changing runs in frontend
+
+                    if (binding.st1.getVisibility() == View.VISIBLE)
+                    {
+                        strikerRuns += 4;
+                        stRuns = Integer.toString(strikerRuns);
+                        binding.strikerruns.setText(stRuns);
+
+                        strikerBalls += 1;
+                        stBalls = Integer.toString(strikerBalls);
+                        binding.strikerballs.setText(stBalls);
+
+                        strikerStrate = (strikerRuns / strikerBalls) * 100;
+                        stStrikeRate = String.valueOf(strikerStrate);
+                        binding.strikerstrate.setText(stStrikeRate);
+
+                    }
+                    else if (binding.st2.getVisibility() == View.VISIBLE)
+                    {
+                        nstRuns += 4;
+                        nstrikerRuns = Integer.toString(nstRuns);
+                        binding.nstrikerruns.setText(nstrikerRuns);
+
+                        nstBalls += 1;
+                        nstrikerBalls = Integer.toString(nstBalls);
+                        binding.nstrikerballs.setText(nstrikerBalls);
+
+                        nstStRate = (strikerRuns / strikerBalls) * 100;
+                        nstrikerStRate = String.valueOf(nstStRate);
+                        binding.nstrikerstrate.setText(nstrikerStRate);
+
+                    }
+
+                    bowlerRuns += 5;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
+                    binding.checkBoxNoBall.setChecked(false);
+
+                }
+
+
                 else {
                     totRuns += 4;
                     runs = Integer.toString(totRuns);
@@ -1137,7 +1403,63 @@ public class scoreBoard extends AppCompatActivity {
                         binding.st1.setVisibility(View.VISIBLE);
                     }
 
+                    bowlerRuns += 6;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
                     binding.checkBoxWide.setChecked(false);
+
+                }
+
+                //               CODE FOR NO BALL
+                if (binding.checkBoxNoBall.isChecked())
+                {
+                    totRuns += 6;//to update total runs
+                    runs = Integer.toString(totRuns);//converting int runs to string runs
+                    binding.totruns.setText(runs);//changing runs in frontend
+
+                    if (binding.st1.getVisibility() == View.VISIBLE)
+                    {
+                        strikerRuns += 5;
+                        stRuns = Integer.toString(strikerRuns);
+                        binding.strikerruns.setText(stRuns);
+
+                        strikerBalls += 1;
+                        stBalls = Integer.toString(strikerBalls);
+                        binding.strikerballs.setText(stBalls);
+
+                        strikerStrate = (strikerRuns / strikerBalls) * 100;
+                        stStrikeRate = String.valueOf(strikerStrate);
+                        binding.strikerstrate.setText(stStrikeRate);
+
+                        binding.st1.setVisibility(View.INVISIBLE);
+                        binding.st2.setVisibility(View.VISIBLE);
+
+                    }
+                    else if (binding.st2.getVisibility() == View.VISIBLE)
+                    {
+                        nstRuns += 5;
+                        nstrikerRuns = Integer.toString(nstRuns);
+                        binding.nstrikerruns.setText(nstrikerRuns);
+
+                        nstBalls += 1;
+                        nstrikerBalls = Integer.toString(nstBalls);
+                        binding.nstrikerballs.setText(nstrikerBalls);
+
+                        nstStRate = (strikerRuns / strikerBalls) * 100;
+                        nstrikerStRate = String.valueOf(nstStRate);
+                        binding.nstrikerstrate.setText(nstrikerStRate);
+
+                        binding.st2.setVisibility(View.INVISIBLE);
+                        binding.st1.setVisibility(View.VISIBLE);
+
+                    }
+
+                    bowlerRuns += 6;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
+                    binding.checkBoxNoBall.setChecked(false);
 
                 }
                 else {
@@ -1325,9 +1647,61 @@ public class scoreBoard extends AppCompatActivity {
                     runs = Integer.toString(totRuns);//converting int runs to string runs
                     binding.totruns.setText(runs);//changing runs in frontend
 
+                    bowlerRuns += 7;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
                     binding.checkBoxWide.setChecked(false);
 
                 }
+
+                //               CODE FOR NO BALL
+                if (binding.checkBoxNoBall.isChecked())
+                {
+                    totRuns += 7;//to update total runs
+                    runs = Integer.toString(totRuns);//converting int runs to string runs
+                    binding.totruns.setText(runs);//changing runs in frontend
+
+                    if (binding.st1.getVisibility() == View.VISIBLE)
+                    {
+                        strikerRuns += 6;
+                        stRuns = Integer.toString(strikerRuns);
+                        binding.strikerruns.setText(stRuns);
+
+                        strikerBalls += 1;
+                        stBalls = Integer.toString(strikerBalls);
+                        binding.strikerballs.setText(stBalls);
+
+                        strikerStrate = (strikerRuns / strikerBalls) * 100;
+                        stStrikeRate = String.valueOf(strikerStrate);
+                        binding.strikerstrate.setText(stStrikeRate);
+
+                    }
+                    else if (binding.st2.getVisibility() == View.VISIBLE)
+                    {
+                        nstRuns += 6;
+                        nstrikerRuns = Integer.toString(nstRuns);
+                        binding.nstrikerruns.setText(nstrikerRuns);
+
+                        nstBalls += 1;
+                        nstrikerBalls = Integer.toString(nstBalls);
+                        binding.nstrikerballs.setText(nstrikerBalls);
+
+                        nstStRate = (strikerRuns / strikerBalls) * 100;
+                        nstrikerStRate = String.valueOf(nstStRate);
+                        binding.nstrikerstrate.setText(nstrikerStRate);
+
+
+                    }
+
+                    bowlerRuns += 7;
+                    bRuns = Integer.toString(bowlerRuns);
+                    binding.bowlerruns.setText(bRuns);
+
+                    binding.checkBoxNoBall.setChecked(false);
+
+                }
+
                 else {
                     totRuns += 6;
                     runs = Integer.toString(totRuns);
@@ -1585,6 +1959,12 @@ public class scoreBoard extends AppCompatActivity {
                     binding.checkBoxWide.setChecked(false);
 
                 }
+
+                if (binding.checkBoxNoBall.isChecked())
+                {
+                    Toast.makeText(scoreBoard.this, "It's a No Ball! Click on other Button.", Toast.LENGTH_SHORT).show();
+                }
+
                 else {
                     wickets += 1;//updating wickets
                     wick = Integer.toString(wickets);//int to string
@@ -1829,7 +2209,7 @@ public class scoreBoard extends AppCompatActivity {
                 }
 
                 //               New Bowler Input
-                if (balls == 0)
+                if (balls == 0 && overs>0)
                 {
 
 
