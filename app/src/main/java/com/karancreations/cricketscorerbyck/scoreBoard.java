@@ -99,6 +99,22 @@ public class scoreBoard extends AppCompatActivity {
 
         int k = 0;
 
+        int prevRuns;
+        int prevWickets;
+        int prevStRuns;
+        int prevNstRuns;
+        int prevBowlerRuns;
+        int prevBowlerWickets;
+        int prevBowlerBalls;
+        int prevBowlerOvers;
+        int prevStFours;
+        int prevStSixes;
+        int prevNstFours;
+        int prevNstSixes;
+        int prevBalls;
+        int prevOvers;
+
+
 
 
 //    Function that starts on the start of the activity
@@ -155,6 +171,7 @@ public class scoreBoard extends AppCompatActivity {
                    bowlerRuns += 1;
                    bRuns = Integer.toString(bowlerRuns);
                    binding.bowlerruns.setText(bRuns);
+
 
                    binding.checkBoxWide.setChecked(false);
 
@@ -525,10 +542,16 @@ public class scoreBoard extends AppCompatActivity {
                    runs = Integer.toString(totRuns);//converting int runs to string runs
                    binding.totruns.setText(runs);//changing runs in frontend
 
+                   prevRuns = totRuns;
+                   prevWickets = wickets;
+                   prevBowlerWickets = bowlerWickets;
+
                    balls += 1;// updating balls
+                   prevBalls = balls - 1;
                    if (balls == 6) {
                        balls = 0;
                        overs += 1;
+                       prevOvers = overs -1;
                    }
                    totBalls = Integer.toString(balls);//int to string
                    totOvers = Integer.toString(overs);//int to string
@@ -550,6 +573,12 @@ public class scoreBoard extends AppCompatActivity {
                        strikerStrate = (strikerRuns / strikerBalls) * 100;
                        stStrikeRate = String.valueOf(strikerStrate);
                        binding.strikerstrate.setText(stStrikeRate);
+
+                       prevStRuns = strikerRuns;
+                       prevStFours = strikerFours;
+                       prevStSixes = strikerSixes;
+
+
                    }
                    else if (binding.st2.getVisibility() == View.VISIBLE)
                    {
@@ -564,6 +593,10 @@ public class scoreBoard extends AppCompatActivity {
                        nstStRate = (strikerRuns / strikerBalls) * 100;
                        nstrikerStRate = String.valueOf(nstStRate);
                        binding.nstrikerstrate.setText(nstrikerStRate);
+
+                       prevNstRuns = strikerRuns;
+                       prevNstFours = strikerFours;
+                       prevNstSixes = strikerSixes;
                    }
 
 
@@ -583,10 +616,15 @@ public class scoreBoard extends AppCompatActivity {
                    bRuns = Integer.toString(bowlerRuns);
                    binding.bowlerruns.setText(bRuns);
 
+                   prevBowlerRuns = bowlerRuns;
+
                    bowlerBalls += 1;// updating bowler balls
+                   prevBowlerBalls = bowlerBalls;
+
                    if (bowlerBalls == 6) {
                        bowlerBalls = 0;
                        bowlerOvers += 1;
+                       prevBowlerOvers = bowlerOvers;
                    }
 
                    bBalls = Integer.toString(bowlerBalls);
@@ -4616,6 +4654,167 @@ public class scoreBoard extends AppCompatActivity {
 
 
                 }
+            }
+        });
+
+
+//        CODE FOR SWAP BUTTON
+        binding.swapbatsmanbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//           Changing the Striker after the over is complete
+                if (binding.st1.getVisibility() == View.VISIBLE)
+                {
+                    binding.st1.setVisibility(View.INVISIBLE);
+                    binding.st2.setVisibility(View.VISIBLE);
+                }
+                else if (binding.st2.getVisibility() == View.VISIBLE)
+                {
+                    binding.st2.setVisibility(View.INVISIBLE);
+                    binding.st1.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+//        CODE FOR RETIRE BUTTON
+        binding.retirebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                wickets += 1;//updating wickets
+                wick = Integer.toString(wickets);//int to string
+                binding.totwickets.setText(wick);//changing wickets in frontend
+
+
+//               CODE TO TERMINATE 1ST INNINGS IF THE WHOLE TEAM IS ALL OUT
+                if (wickets == (totPlayers - 1)) {
+                    firstInnRuns = totRuns;
+                    firstInnRunsST = String.valueOf(firstInnRuns);
+
+                    firstInnballs = balls;
+                    firstInnBallsSt = String.valueOf(firstInnballs);
+
+                    firstInnWick = wickets;
+                    firstInnWickST = String.valueOf(firstInnWick);
+
+                    firstInnOvers = overs;
+                    firstInnOversST = String.valueOf(firstInnOvers);
+
+                    //                   CODE TO START SECOND INNINGS...
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoard.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("Target: " + firstInnRunsST);
+
+                    // Set Alert Title
+                    builder.setTitle("First Innings OVER!");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+                    // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
+                            startActivity(secInn);
+
+                        }
+                    });
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        dialog.cancel();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
+
+
+                    binding.newbatsmanlayout.setVisibility(View.INVISIBLE);
+
+                } else {
+                    binding.newbatsmanlayout.setVisibility(View.VISIBLE);
+                }
+
+                //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
+                if (overs == tOvers) {
+                    firstInnRuns = totRuns;
+                    firstInnRunsST = String.valueOf(firstInnRuns);
+
+                    firstInnballs = balls;
+                    firstInnBallsSt = String.valueOf(firstInnballs);
+
+                    firstInnWick = wickets;
+                    firstInnWickST = String.valueOf(firstInnWick);
+
+                    firstInnOvers = overs;
+                    firstInnOversST = String.valueOf(firstInnOvers);
+
+                    //                   CODE TO START SECOND INNINGS...
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoard.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("Target: " + firstInnRunsST);
+
+                    // Set Alert Title
+                    builder.setTitle("First Innings OVER!");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+                    // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
+                            startActivity(secInn);
+
+                        }
+                    });
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        dialog.cancel();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
+
+
+                }
+
+            }
+
+            });
+
+
+//        CODE FOR UNDO BUTTON
+
+//        Toast.makeText(this, "Undo Button is not Activated.", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Check for Updates.", Toast.LENGTH_SHORT).show();
+
+        binding.undobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+        binding.totruns.setText(String.valueOf(prevRuns));
+        binding.balls.setText(String.valueOf(prevBalls));
+
             }
         });
 
