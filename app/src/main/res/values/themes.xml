@@ -22,4 +22,17 @@
     <style name="Theme.CricketScorerByCK.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CricketScorerByCK.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.CricketScorerByCK.Fullscreen" parent="Theme.CricketScorerByCK">
+        <item name="android:actionBarStyle">
+            @style/Widget.Theme.CricketScorerByCK.ActionBar.Fullscreen
+        </item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.CricketScorerByCK.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 </resources>

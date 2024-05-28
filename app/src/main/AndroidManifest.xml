@@ -12,6 +12,12 @@
         android:theme="@style/Theme.CricketScorerByCK"
         tools:targetApi="31">
         <activity
+            android:name=".WinnerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_winner"
+            android:theme="@style/Theme.CricketScorerByCK.Fullscreen" />
+        <activity
             android:name=".newBatsman"
             android:exported="false" />
         <activity

@@ -4409,7 +4409,7 @@ public class scoreBoard extends AppCompatActivity {
 
 //               CODE TO TERMINATE 1ST INNINGS IF THE WHOLE TEAM IS ALL OUT
                     if (wickets == (totPlayers - 1)) {
-                        firstInnRuns = totRuns;
+                        firstInnRuns = totRuns + 1;
                         firstInnRunsST = String.valueOf(firstInnRuns);
 
                         firstInnballs = balls;

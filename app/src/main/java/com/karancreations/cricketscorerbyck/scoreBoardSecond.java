@@ -142,7 +142,7 @@ public class scoreBoardSecond extends AppCompatActivity {
         binding.ballsleft.setText(ballsLeft);
 
 //      UPDATING REQUIRED RUNS
-        reqRunsINT = Math.abs(totRuns - fIRuns);
+        reqRunsINT = Math.abs(totRuns - (fIRuns+1));
         reqRuns = String.valueOf(reqRunsINT);
         binding.reqruns.setText(reqRuns);
 
@@ -175,6 +175,14 @@ public class scoreBoardSecond extends AppCompatActivity {
                reqRunsINT = Math.abs(totRuns - fIRuns);
                reqRuns = String.valueOf(reqRunsINT);
                binding.reqruns.setText(reqRuns);
+
+//               TERMINATING IF RUNS == REQUIRED RUNS
+               if (fIRuns == totRuns ) {
+
+                           Intent winner = new Intent(getApplicationContext(), WinnerActivity.class);
+                           startActivity(winner);
+
+               }
 
 //               UPDATING BALLS LEFT
                ballsLeftINT -= 1;
@@ -1552,6 +1560,7 @@ public class scoreBoardSecond extends AppCompatActivity {
                 reqRunsINT = Math.abs(totRuns - fIRuns);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
+
 
                 //               UPDATING BALLS LEFT
                 ballsLeftINT -= 1;
