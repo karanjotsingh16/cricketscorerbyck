@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CricketScorerByCK"
         tools:targetApi="31">
         <activity
+            android:name=".Winner"
+            android:exported="false" />
+        <activity
             android:name=".WinnerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"

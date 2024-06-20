@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ic_launcher_background"
-    android:theme="@style/ThemeOverlay.CricketScorerByCK.FullscreenContainer"
-    tools:context=".WinnerActivity">
+    tools:context=".Winner">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,7 +26,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txt_runs_wickets"
+                android:id="@+id/txtrunswickets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -48,11 +40,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_wonby"
+                app:layout_constraintTop_toBottomOf="@+id/txtwonby"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/txt_runs_wickets_name"
+                android:id="@+id/txt_runswicketsname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-10dp"
@@ -67,11 +59,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_runs_wickets"
+                app:layout_constraintTop_toBottomOf="@+id/txtrunswickets"
                 app:layout_constraintVertical_bias="0" />
 
             <TextView
-                android:id="@+id/txt_team_name"
+                android:id="@+id/txtteamname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
@@ -90,7 +82,7 @@
                 app:layout_constraintVertical_bias="0.186" />
 
             <TextView
-                android:id="@+id/txt_wonby"
+                android:id="@+id/txtwonby"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
@@ -103,7 +95,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_team_name"
+                app:layout_constraintTop_toBottomOf="@+id/txtteamname"
                 app:layout_constraintVertical_bias="0" />
 
             <ImageView
@@ -113,11 +105,11 @@
                 android:layout_marginTop="95dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_wonby"
+                app:layout_constraintTop_toBottomOf="@+id/txtwonby"
                 app:srcCompat="@drawable/logo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </FrameLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
