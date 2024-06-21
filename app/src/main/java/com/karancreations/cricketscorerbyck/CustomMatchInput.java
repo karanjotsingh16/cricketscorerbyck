@@ -50,6 +50,8 @@ public class CustomMatchInput extends AppCompatActivity {
                 nameTeam2 = binding.team2Name.getText().toString();
                 binding.tossTeam1.setText(nameTeam1);
                 binding.tossTeam2.setText(nameTeam2);
+
+                Toast.makeText(CustomMatchInput.this, "Proceed further...", Toast.LENGTH_SHORT).show();
             }
         });
 

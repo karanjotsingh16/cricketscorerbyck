@@ -26,12 +26,12 @@ public class Winner extends AppCompatActivity {
         temp = new String[2];
 
 
-        if (batTeam == team1) {
-            binding.txtteamname.setText(team2);
-        }
-        else {
-            binding.txtteamname.setText(team1);
-        }
+//        if (batTeam == team1) {
+//            binding.txtteamname.setText(team2);
+//        }
+//        else {
+//            binding.txtteamname.setText(team1);
+//        }
 
         binding.txtrunswickets.setText(totWickets);
         binding.txtRunswicketsname.setText(temp[0]);

@@ -4805,18 +4805,18 @@ public class scoreBoard extends AppCompatActivity {
 
 //        CODE FOR UNDO BUTTON
 
-//        Toast.makeText(this, "Undo Button is not Activated.", Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, "Check for Updates.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Undo Button is Coming Soon!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Check for Updates.", Toast.LENGTH_SHORT).show();
 
-        binding.undobtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        binding.undobtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//        binding.totruns.setText(String.valueOf(prevRuns));
+//        binding.balls.setText(String.valueOf(prevBalls));
 
-        binding.totruns.setText(String.valueOf(prevRuns));
-        binding.balls.setText(String.valueOf(prevBalls));
-
-            }
-        });
+//            }
+//        });
 
 
 

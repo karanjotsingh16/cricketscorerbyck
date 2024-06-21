@@ -1,5 +1,7 @@
 package com.karancreations.cricketscorerbyck;
 
+import static com.karancreations.cricketscorerbyck.CustomMatchInput.nameTeam1;
+import static com.karancreations.cricketscorerbyck.CustomMatchInput.nameTeam2;
 import static com.karancreations.cricketscorerbyck.CustomMatchInput.tOvers;
 
 import android.app.AlertDialog;
@@ -105,6 +107,14 @@ public class scoreBoardSecond extends AppCompatActivity {
 
         String Overs;
 
+        int wLeft;
+        String wicketsLeft;
+
+        int rLeft;
+        String runsleft;
+
+        int target;
+        String targetS;
 
 
 //    Function that starts on the start of the activity
@@ -128,6 +138,10 @@ public class scoreBoardSecond extends AppCompatActivity {
         fInnRuns = scoreBoard.firstInnRunsST;// TO STORE RUN SCORED IN FIRST INNINGS
         fIRuns = Integer.parseInt(fInnRuns);
 
+//        TARGET FOR SECOND INNINGS
+        target = fIRuns + 1;
+        targetS = String.valueOf(target);
+
         batsman[0] = scStriker;//storing name of 1st batsman in array
         batsman[1] = scnonStriker;//storing name of 2nd batsman in array
 
@@ -136,13 +150,18 @@ public class scoreBoardSecond extends AppCompatActivity {
         binding.bowlersb.setText(scBowler);//changing text of bowler in frontend
         binding.t1name.setText(team1);//changing text of Team1 in frontend
         binding.t2name.setText(team2);//changing text of Team2 in frontend
-        binding.batteam.setText(teambat);//changing text of Batting team in frontend
 
-        binding.targetruns.setText(fInnRuns);
+        if (CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+            binding.batteam.setText(team2);//changing text of Batting team in frontend
+        } else {
+            binding.batteam.setText(team1);
+        }
+
+        binding.targetruns.setText(targetS);
         binding.ballsleft.setText(ballsLeft);
 
 //      UPDATING REQUIRED RUNS
-        reqRunsINT = Math.abs(totRuns - (fIRuns+1));
+        reqRunsINT = Math.abs((fIRuns+1) - totRuns );
         reqRuns = String.valueOf(reqRunsINT);
         binding.reqruns.setText(reqRuns);
 
@@ -172,16 +191,78 @@ public class scoreBoardSecond extends AppCompatActivity {
 
 
 //               UPDATING REQUIRED RUNS
-               reqRunsINT = Math.abs(totRuns - fIRuns);
+               reqRunsINT = Math.abs(fIRuns - totRuns +1);
                reqRuns = String.valueOf(reqRunsINT);
                binding.reqruns.setText(reqRuns);
 
+//               CALCULATING THE WICKETS LEFT
+               wLeft = totPlayers - wickets;
+               wicketsLeft = String.valueOf(wLeft);
+
+//               CALCULATING THE RUNS LEFT
+               rLeft = Integer.parseInt(fInnRuns) - totRuns;
+               runsleft = String.valueOf(rLeft);
+
 //               TERMINATING IF RUNS == REQUIRED RUNS
-               if (fIRuns == totRuns ) {
+               if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                           Intent winner = new Intent(getApplicationContext(), Winner.class);
-                           startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                   if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                       // Create the object of AlertDialog Builder class
+                       AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                       // Set the message show for the Alert time
+                       builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                       // Set Alert Title
+                       builder.setTitle(nameTeam2 + " WON");
+
+                       // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                       builder.setCancelable(false);
+
+
+
+                       // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                       builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                           // If user click no then dialog box is canceled.
+                          finish();
+                       });
+
+                       // Create the Alert dialog
+                       AlertDialog alertDialog = builder.create();
+                       // Show the Alert Dialog box
+                       alertDialog.show();
+
+                   }
+               }
+
+               else if (overs == tOvers ) {
+
+                   // Create the object of AlertDialog Builder class
+                   AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                   // Set the message show for the Alert time
+                   builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                   // Set Alert Title
+                   builder.setTitle(nameTeam1 + " WON");
+
+                   // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                   builder.setCancelable(false);
+
+
+
+                   // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                   builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                       // If user click no then dialog box is canceled.
+                       finish();
+                   });
+
+                   // Create the Alert dialog
+                   AlertDialog alertDialog = builder.create();
+                   // Show the Alert Dialog box
+                   alertDialog.show();
                }
 
 //               UPDATING BALLS LEFT
@@ -293,61 +374,61 @@ public class scoreBoardSecond extends AppCompatActivity {
                }
 
 //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
-               if (overs == tOvers)
-               {
-//                   firstInnRuns = totRuns;
-//                   firstInnRunsST = String.valueOf(firstInnRuns);
+//               if (overs == tOvers)
+//               {
+////                   firstInnRuns = totRuns;
+////                   firstInnRunsST = String.valueOf(firstInnRuns);
+////
+////                   firstInnballs = balls;
+////                   firstInnBallsSt = String.valueOf(firstInnballs);
+////
+////                   firstInnWick = wickets;
+////                   firstInnWickST = String.valueOf(firstInnWick);
+////
+////                   firstInnOvers = overs;
+////                   firstInnOversST = String.valueOf(firstInnOvers);
 //
-//                   firstInnballs = balls;
-//                   firstInnBallsSt = String.valueOf(firstInnballs);
 //
-//                   firstInnWick = wickets;
-//                   firstInnWickST = String.valueOf(firstInnWick);
+////                   CODE TO START SECOND INNINGS...
 //
-//                   firstInnOvers = overs;
-//                   firstInnOversST = String.valueOf(firstInnOvers);
-
-
-//                   CODE TO START SECOND INNINGS...
-
-                   // Create the object of AlertDialog Builder class
-                   AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
-
-                   // Set the message show for the Alert time
-//                   builder.setMessage("Target: " + firstInnRunsST );
-
-                   // Set Alert Title
-                   builder.setTitle("First Innings OVER!");
-
-                   // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-                   builder.setCancelable(false);
-
-                   // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-                   builder.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialogInterface, int i) {
-                           dialogInterface.dismiss();
-                           Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                           startActivity(secInn);
-
-                       }
-                   });
-
-
-                   // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
-                   builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
-                       // If user click no then dialog box is canceled.
-                       dialog.cancel();
-                   });
-
-                   // Create the Alert dialog
-                   AlertDialog alertDialog = builder.create();
-                   // Show the Alert Dialog box
-                   alertDialog.show();
-
-
-
-               }
+//                   // Create the object of AlertDialog Builder class
+//                   AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+//
+//                   // Set the message show for the Alert time
+////                   builder.setMessage("Target: " + firstInnRunsST );
+//
+//                   // Set Alert Title
+//                   builder.setTitle("First Innings OVER!");
+//
+//                   // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+//                   builder.setCancelable(false);
+//
+//                   // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+//                   builder.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
+//                       @Override
+//                       public void onClick(DialogInterface dialogInterface, int i) {
+//                           dialogInterface.dismiss();
+//                           Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
+//                           startActivity(secInn);
+//
+//                       }
+//                   });
+//
+//
+//                   // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+//                   builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+//                       // If user click no then dialog box is canceled.
+//                       dialog.cancel();
+//                   });
+//
+//                   // Create the Alert dialog
+//                   AlertDialog alertDialog = builder.create();
+//                   // Show the Alert Dialog box
+//                   alertDialog.show();
+//
+//
+//
+//               }
 
 
 
@@ -363,16 +444,72 @@ public class scoreBoardSecond extends AppCompatActivity {
                binding.totruns.setText(runs);
 
 //               UPDATING REQUIRED RUNS
-               reqRunsINT = Math.abs(totRuns - fIRuns);
+               reqRunsINT = Math.abs(fIRuns - totRuns +1 )  ;
                reqRuns = String.valueOf(reqRunsINT);
                binding.reqruns.setText(reqRuns);
 
 //               TERMINATING IF RUNS == REQUIRED RUNS
-               if (fIRuns == totRuns ) {
+               if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                   Intent winner = new Intent(getApplicationContext(), Winner.class);
-                   startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                   if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                       // Create the object of AlertDialog Builder class
+                       AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                       // Set the message show for the Alert time
+                       builder.setMessage("by " +wicketsLeft+ " Wickets");
+
+                       // Set Alert Title
+                       builder.setTitle(nameTeam2 + " WON");
+
+                       // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                       builder.setCancelable(false);
+
+
+
+                       // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                       builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                           // If user click no then dialog box is canceled.
+                           finish();
+                       });
+
+                       // Create the Alert dialog
+                       AlertDialog alertDialog = builder.create();
+                       // Show the Alert Dialog box
+                       alertDialog.show();
+
+                   }
+
+               }
+
+
+               else if (overs == tOvers ) {
+
+                   // Create the object of AlertDialog Builder class
+                   AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                   // Set the message show for the Alert time
+                   builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                   // Set Alert Title
+                   builder.setTitle(nameTeam1 + " WON");
+
+                   // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                   builder.setCancelable(false);
+
+
+
+                   // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                   builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                       // If user click no then dialog box is canceled.
+                       finish();
+                   });
+
+                   // Create the Alert dialog
+                   AlertDialog alertDialog = builder.create();
+                   // Show the Alert Dialog box
+                   alertDialog.show();
                }
 
                //               UPDATING BALLS LEFT
@@ -505,60 +642,60 @@ public class scoreBoardSecond extends AppCompatActivity {
                }
 
                //               CODE TO TERMINATE IF THE OVERS ARE COMPLETED
-               if (overs == tOvers)
-               {
-//                   firstInnRuns = totRuns;
-//                   firstInnRunsST = String.valueOf(firstInnRuns);
+//               if (overs == tOvers && fIRuns == totRuns)
+//               {
+////                   firstInnRuns = totRuns;
+////                   firstInnRunsST = String.valueOf(firstInnRuns);
+////
+////                   firstInnballs = balls;
+////                   firstInnBallsSt = String.valueOf(firstInnballs);
+////
+////                   firstInnWick = wickets;
+////                   firstInnWickST = String.valueOf(firstInnWick);
+////
+////                   firstInnOvers = overs;
+////                   firstInnOversST = String.valueOf(firstInnOvers);
 //
-//                   firstInnballs = balls;
-//                   firstInnBallsSt = String.valueOf(firstInnballs);
 //
-//                   firstInnWick = wickets;
-//                   firstInnWickST = String.valueOf(firstInnWick);
+//                   //                   CODE TO START SECOND INNINGS...
 //
-//                   firstInnOvers = overs;
-//                   firstInnOversST = String.valueOf(firstInnOvers);
-
-
-                   //                   CODE TO START SECOND INNINGS...
-
-                   // Create the object of AlertDialog Builder class
-                   AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
-
-                   // Set the message show for the Alert time
-//                   builder.setMessage("Target: " + firstInnRunsST );
-
-                   // Set Alert Title
-                   builder.setTitle("First Innings OVER!");
-
-                   // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-                   builder.setCancelable(false);
-
-                   // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-                   builder.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialogInterface, int i) {
-                           dialogInterface.dismiss();
-                           Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                           startActivity(secInn);
-
-                       }
-                   });
-
-
-                   // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
-                   builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
-                       // If user click no then dialog box is canceled.
-                       dialog.cancel();
-                   });
-
-                   // Create the Alert dialog
-                   AlertDialog alertDialog = builder.create();
-                   // Show the Alert Dialog box
-                   alertDialog.show();
-
-
-               }
+//                   // Create the object of AlertDialog Builder class
+//                   AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+//
+//                   // Set the message show for the Alert time
+////                   builder.setMessage("Target: " + firstInnRunsST );
+//
+//                   // Set Alert Title
+//                   builder.setTitle("First Innings OVER!");
+//
+//                   // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+//                   builder.setCancelable(false);
+//
+//                   // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+//                   builder.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
+//                       @Override
+//                       public void onClick(DialogInterface dialogInterface, int i) {
+//                           dialogInterface.dismiss();
+//                           Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
+//                           startActivity(secInn);
+//
+//                       }
+//                   });
+//
+//
+//                   // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+//                   builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+//                       // If user click no then dialog box is canceled.
+//                       dialog.cancel();
+//                   });
+//
+//                   // Create the Alert dialog
+//                   AlertDialog alertDialog = builder.create();
+//                   // Show the Alert Dialog box
+//                   alertDialog.show();
+//
+//
+//               }
 
 
 
@@ -575,16 +712,70 @@ public class scoreBoardSecond extends AppCompatActivity {
                 binding.totruns.setText(runs);
 
                 //               UPDATING REQUIRED RUNS
-                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRunsINT = Math.abs(fIRuns - totRuns +1);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
 
 //               TERMINATING IF RUNS == REQUIRED RUNS
-                if (fIRuns == totRuns ) {
+                if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                    Intent winner = new Intent(getApplicationContext(), Winner.class);
-                    startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                    if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                        // Create the object of AlertDialog Builder class
+                        AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                        // Set the message show for the Alert time
+                        builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                        // Set Alert Title
+                        builder.setTitle(nameTeam2 + " WON");
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builder.setCancelable(false);
+
+
+
+                        // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                        builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            // If user click no then dialog box is canceled.
+                            finish();
+                        });
+
+                        // Create the Alert dialog
+                        AlertDialog alertDialog = builder.create();
+                        // Show the Alert Dialog box
+                        alertDialog.show();
+
+                    }
+                }
+
+                else if (overs == tOvers ) {
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                    // Set Alert Title
+                    builder.setTitle(nameTeam1 + " WON");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        finish();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
 
 
@@ -776,16 +967,70 @@ public class scoreBoardSecond extends AppCompatActivity {
                 binding.totruns.setText(runs);
 
                 //               UPDATING REQUIRED RUNS
-                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRunsINT = Math.abs(fIRuns - totRuns +1);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
 
                 //               TERMINATING IF RUNS == REQUIRED RUNS
-                if (fIRuns == totRuns ) {
+                if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                    Intent winner = new Intent(getApplicationContext(), Winner.class);
-                    startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                    if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                        // Create the object of AlertDialog Builder class
+                        AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                        // Set the message show for the Alert time
+                        builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                        // Set Alert Title
+                        builder.setTitle(nameTeam2 + " WON");
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builder.setCancelable(false);
+
+
+
+                        // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                        builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            // If user click no then dialog box is canceled.
+                            finish();
+                        });
+
+                        // Create the Alert dialog
+                        AlertDialog alertDialog = builder.create();
+                        // Show the Alert Dialog box
+                        alertDialog.show();
+
+                    }
+                }
+
+                else if (overs == tOvers ) {
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                    // Set Alert Title
+                    builder.setTitle(nameTeam1 + " WON");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        finish();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
 
 
@@ -985,16 +1230,70 @@ public class scoreBoardSecond extends AppCompatActivity {
                 binding.totruns.setText(runs);
 
                 //               UPDATING REQUIRED RUNS
-                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRunsINT = Math.abs(fIRuns - totRuns +1);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
 
                 //               TERMINATING IF RUNS == REQUIRED RUNS
-                if (fIRuns == totRuns ) {
+                if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                    Intent winner = new Intent(getApplicationContext(), Winner.class);
-                    startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                    if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                        // Create the object of AlertDialog Builder class
+                        AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                        // Set the message show for the Alert time
+                        builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                        // Set Alert Title
+                        builder.setTitle(nameTeam2 + " WON");
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builder.setCancelable(false);
+
+
+
+                        // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                        builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            // If user click no then dialog box is canceled.
+                            finish();
+                        });
+
+                        // Create the Alert dialog
+                        AlertDialog alertDialog = builder.create();
+                        // Show the Alert Dialog box
+                        alertDialog.show();
+
+                    }
+                }
+
+                else if (overs == tOvers ) {
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                    // Set Alert Title
+                    builder.setTitle(nameTeam1 + " WON");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        finish();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
 
                 //               UPDATING BALLS LEFT
@@ -1195,16 +1494,70 @@ public class scoreBoardSecond extends AppCompatActivity {
                 binding.totruns.setText(runs);
 
                 //               UPDATING REQUIRED RUNS
-                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRunsINT = Math.abs(fIRuns - totRuns +1);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
 
                 //               TERMINATING IF RUNS == REQUIRED RUNS
-                if (fIRuns == totRuns ) {
+                if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                    Intent winner = new Intent(getApplicationContext(), Winner.class);
-                    startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                    if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                        // Create the object of AlertDialog Builder class
+                        AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                        // Set the message show for the Alert time
+                        builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                        // Set Alert Title
+                        builder.setTitle(nameTeam2 + " WON");
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builder.setCancelable(false);
+
+
+
+                        // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                        builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            // If user click no then dialog box is canceled.
+                            finish();
+                        });
+
+                        // Create the Alert dialog
+                        AlertDialog alertDialog = builder.create();
+                        // Show the Alert Dialog box
+                        alertDialog.show();
+
+                    }
+                }
+
+                else if (overs == tOvers ) {
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                    // Set Alert Title
+                    builder.setTitle(nameTeam1 + " WON");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        finish();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
 
                 //               UPDATING BALLS LEFT
@@ -1398,16 +1751,70 @@ public class scoreBoardSecond extends AppCompatActivity {
                 binding.totruns.setText(runs);
 
                 //               UPDATING REQUIRED RUNS
-                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRunsINT = Math.abs(fIRuns - totRuns +1);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
 
                 //               TERMINATING IF RUNS == REQUIRED RUNS
-                if (fIRuns == totRuns ) {
+                if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                    Intent winner = new Intent(getApplicationContext(), Winner.class);
-                    startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                    if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                        // Create the object of AlertDialog Builder class
+                        AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                        // Set the message show for the Alert time
+                        builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                        // Set Alert Title
+                        builder.setTitle(nameTeam2 + " WON");
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builder.setCancelable(false);
+
+
+
+                        // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                        builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            // If user click no then dialog box is canceled.
+                            finish();
+                        });
+
+                        // Create the Alert dialog
+                        AlertDialog alertDialog = builder.create();
+                        // Show the Alert Dialog box
+                        alertDialog.show();
+
+                    }
+                }
+
+                else if (overs == tOvers ) {
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                    // Set Alert Title
+                    builder.setTitle(nameTeam1 + " WON");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        finish();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
 
 
@@ -1608,16 +2015,70 @@ public class scoreBoardSecond extends AppCompatActivity {
                 binding.totwickets.setText(wick);//changing wickets in frontend
 
                 //               UPDATING REQUIRED RUNS
-                reqRunsINT = Math.abs(totRuns - fIRuns);
+                reqRunsINT = Math.abs(fIRuns - totRuns +1);
                 reqRuns = String.valueOf(reqRunsINT);
                 binding.reqruns.setText(reqRuns);
 
 //               TERMINATING IF RUNS == REQUIRED RUNS
-                if (fIRuns == totRuns ) {
+                if ((fIRuns+1) <= totRuns && ballsLeftINT > 0) {
 
-                    Intent winner = new Intent(getApplicationContext(), Winner.class);
-                    startActivity(winner);
+//                           Intent winner = new Intent(getApplicationContext(), Winner.class);
+//                           startActivity(winner);
+                    if(CustomMatchInput.bat == CustomMatchInput.nameTeam1) {
+                        // Create the object of AlertDialog Builder class
+                        AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
+                        // Set the message show for the Alert time
+                        builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                        // Set Alert Title
+                        builder.setTitle(nameTeam2 + " WON");
+
+                        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                        builder.setCancelable(false);
+
+
+
+                        // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                        builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                            // If user click no then dialog box is canceled.
+                            finish();
+                        });
+
+                        // Create the Alert dialog
+                        AlertDialog alertDialog = builder.create();
+                        // Show the Alert Dialog box
+                        alertDialog.show();
+
+                    }
+                }
+
+                else if (overs == tOvers ) {
+
+                    // Create the object of AlertDialog Builder class
+                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+
+                    // Set the message show for the Alert time
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
+
+                    // Set Alert Title
+                    builder.setTitle(nameTeam1 + " WON");
+
+                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                    builder.setCancelable(false);
+
+
+
+                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        finish();
+                    });
+
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
                 }
 
 
@@ -1689,43 +2150,69 @@ public class scoreBoardSecond extends AppCompatActivity {
                     //                   CODE TO START SECOND INNINGS...
 
                     // Create the object of AlertDialog Builder class
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
+//
+//                    // Set the message show for the Alert time
+////                    builder.setMessage("Target: " + firstInnRunsST );
+//
+//                    // Set Alert Title
+//                    builder.setTitle("First Innings OVER!");
+//
+//                    // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+//                    builder.setCancelable(false);
+//
+//                    // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+//                    builder.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                            Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
+//                            startActivity(secInn);
+//
+//                        }
+//                    });
+//
+//
+//                    // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
+//                    builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+//                        // If user click no then dialog box is canceled.
+//                        dialog.cancel();
+//                    });
+//
+//                    // Create the Alert dialog
+//                    AlertDialog alertDialog = builder.create();
+//                    // Show the Alert Dialog box
+//                    alertDialog.show();
+//
+//
+//
+//                    binding.newbatsmanlayout.setVisibility(View.INVISIBLE);
+
+
+                    // Create the object of AlertDialog Builder class
                     AlertDialog.Builder builder = new AlertDialog.Builder(scoreBoardSecond.this);
 
                     // Set the message show for the Alert time
-//                    builder.setMessage("Target: " + firstInnRunsST );
+                    builder.setMessage("To play the next match, reopen the app again after closing it properly!");
 
                     // Set Alert Title
-                    builder.setTitle("First Innings OVER!");
+                    builder.setTitle(nameTeam1 + " WON");
 
                     // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
                     builder.setCancelable(false);
 
-                    // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-                    builder.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                            Intent secInn = new Intent(getApplicationContext(), playerDetailsSecond.class);
-                            startActivity(secInn);
-
-                        }
-                    });
 
 
                     // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
-                    builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    builder.setNegativeButton("EXIT", (DialogInterface.OnClickListener) (dialog, which) -> {
                         // If user click no then dialog box is canceled.
-                        dialog.cancel();
+                        finish();
                     });
 
                     // Create the Alert dialog
                     AlertDialog alertDialog = builder.create();
                     // Show the Alert Dialog box
                     alertDialog.show();
-
-
-
-                    binding.newbatsmanlayout.setVisibility(View.INVISIBLE);
 
                 }
 
